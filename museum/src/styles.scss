@@ -1,0 +1,143 @@
+/* roboto-100 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./assets/fonts/roboto-v29-latin-100.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/roboto-v29-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/roboto-v29-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-100.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/roboto-v29-latin-100.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* roboto-300 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/roboto-v29-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/roboto-v29-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/roboto-v29-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/roboto-v29-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/roboto-v29-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/roboto-v29-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/roboto-v29-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* forum-regular - latin */
+@font-face {
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/forum-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/forum-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/forum-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/forum-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/forum-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+$Bg-dark: #030303;
+$Dark-red: #710707;
+$Font-gold: #9d8665;
+$fsz18: 18px;
+$fsz22: 22px;
+$fsz28: 28px;
+$fsz32: 32px;
+$fForum: 'Forum';
+@mixin robo($f, $fw, $ls) {
+  font-size: $f;
+  font-weight: $fw;
+  letter-spacing: $ls;
+}
+
+@mixin forum($ff, $fs, $c, $ls, $tt, $pl) {
+  font-family: $ff;
+  font-size: $fs;
+  color: $c;
+  letter-spacing: $ls;
+  text-transform: $tt;
+  padding-left: $pl;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 100%;
+  background-color: $Bg-dark;
+  .header__wrap {
+    height: 150px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    .header__logo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-image: url('./assets/svg/Vector.svg');
+      background-repeat: no-repeat;
+      background-position:  left center;
+      .header__logo_text {
+        @include forum($fForum, 28px, white, 5px, uppercase, 74px);
+      } 
+    }
+    .header__nav {
+      .header__nav_list {
+        display: flex;
+        justify-content: space-between;
+        .header__nav_item {
+          @include robo(22px, 200, 2px);
+          padding-right: 55px;
+          &:last-child {
+            padding-right: 0;
+          }
+          .header__nav_link {
+            color: white;
+            &:hover {
+              color: #9D8665;
+            }
+            &:active {
+              color: #7E6C51;
+            }
+          }
+        }
+      }
+      
+      
+    }
+  }
+}
+
+
+
+
+
+    
+
