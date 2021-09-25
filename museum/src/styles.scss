@@ -268,8 +268,33 @@ a {
   }
 }
 
-
 // section visiting style end
+
+// section explore style start
+.section__explore {
+  display: flex;
+  justify-content: space-between;
+  padding: 75px 0;
+  .section_border {
+    @extend %secBlack;
+    margin-bottom: 78px;
+  }
+  .text_subtitle {
+    font-size: $fsz22;
+    color: white;
+    padding-bottom: 25px;
+    span {
+      color: #CAAA7D;
+    }
+  }
+}
+
+.section__explore_slider {
+  padding-top: 15px;
+}
+
+
+// section explore style end
 
 
 
