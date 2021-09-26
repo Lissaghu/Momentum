@@ -1,5 +1,6 @@
 import './styles.scss'
-import './scripts.js'
+import './js/scripts.js'
+import './js/gallery.js'
 
 const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();

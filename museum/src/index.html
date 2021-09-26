@@ -207,9 +207,64 @@
             <section class="section__black">
                 <div class="section__gallery section_wrap">
                     <h1 class="section__gallery_title">Art Gallery</h1>
+                    <div class="section__gallery_container">
+                        <div class="section__gallery_inner-container"></div>
+                        <span class="gallery__gradient"></span>
+                    </div>
                 </div>
             </section>
             <!-- Gallery section end -->
+
+            <!-- Tickets section start -->
+            <section class="section__white">
+                <div class="section__tickets section_wrap">
+                    <h1 class="section__tickets_title section_border">Buy Tickets</h1>
+                    <div class="section__tickets_main">
+                        <img src="./assets/img/picture_buy_tickets.jpg" alt="tickets">
+                        <div class="main_columns"> 
+
+                            <div class="main_type_tickets">  
+                                <p class="main_type_tickets_title">Ticket Type</p>
+                                <label class="label">
+                                    <input class="radio" type="radio" name="ticket-type" value="Permanent exhibition">
+                                    <span class="elem"></span>
+                                    <span class="text">Permanent exhibition</span>  
+                                </label>    
+                                <label class="label">
+                                    <input class="radio" type="radio" name="ticket-type" value="Temporary exhibition">
+                                    <span class="elem"></span>
+                                    <span class="text">Temporary exhibition</span>                                
+                                </label>  
+                                <label class="label">
+                                    <input class="radio" type="radio" name="ticket-type" value="Combined Admission">
+                                    <span class="elem"></span>
+                                    <span class="text">Combined Admission</span>
+                                </label>  
+                            </div>
+
+                            <div class="main_type_amount">
+                                <p class="main_type_amount_title">Amount</p>
+                                <p class="amount_basic">Basic 18+</p>
+                                    <div class="amount__basic-section">
+                                        <div class="prev">&mdash;</div>
+                                        <div class="next">+</div> 
+                                        <input class="amount_input" type="number" min="1" max="20" value="1">
+                                    </div>
+                                    
+                                <p class="amount_basic">Senior 65+</p>
+                                    <div class="amount__basic-section">
+                                        <div class="prev">&mdash;</div>
+                                        <div class="next">+</div>
+                                        <input class="amount_input" type="number" min="1" max="20" value="1">
+                                    </div>  
+                                
+                            </div>
+
+                        </div>     
+                    </div>
+                </div>
+            </section>
+            <!-- Tickets section end -->
 
         </div>
     </main>

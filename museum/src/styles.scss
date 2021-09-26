@@ -38,6 +38,20 @@
        url('./assets/fonts/forum-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/roboto-v29-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/roboto-v29-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/roboto-v29-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/roboto-v29-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
 $Bg-dark: #030303;
 $Dark-red: #710707;
 $Font-gold: #9d8665;
@@ -236,7 +250,7 @@ a {
 .section__visiting_head {
   @extend %secWhite;
   padding-top: 75px;
-  margin-bottom: 103px;
+  
 }
 
 .section_border {
@@ -442,8 +456,6 @@ a {
 
 // section gallery style start
 
-// section gallery style end
-
 .section__gallery {
   padding: 75px 0;
   .section__gallery_title {
@@ -451,4 +463,156 @@ a {
   }   
 }
 
+.section__gallery_container {
+  position: relative;
+  margin-top: 75px;
+  height: 1960px;
+  overflow-y: hidden;
+  .gallery__gradient {  
+    width: 100%;
+    height: 360px;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  }
+  .section__gallery_inner-container {
+    display: flex;
+    flex-flow: column wrap;
+    height: 2996px;
+    .section__gallery_item {
+      max-width: 456px;
+      &:nth-child(3n+1) {
+        order: 1;
+        padding-top: 50px;
+      }
+      &:nth-child(3n+2) {
+        order: 2;
+        padding-left: 36px;
+        padding-bottom: 24px;
+      }
+      &:nth-child(3n) {
+        order: 3;
+        padding-left: 36px;
+        padding-top: 50px;
+      }
+    }
+  }
+}
 
+// section gallery style end
+
+// section tickets style start
+
+.section__tickets{
+  padding: 75px 0;
+  .section__tickets_title {
+    @extend %secWhite;
+    margin-bottom: 103px;
+  }
+}
+.section__tickets_main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  .main_columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main_type_tickets {
+    padding-left: 60px;
+    .label {
+      display: block;
+      padding-bottom: 25px;
+      .radio {
+        display: none;
+      }
+      .text {
+        cursor: pointer;
+        font-size: $fsz22;
+        padding-left: 20px;
+      }
+      .elem {
+        display: inline-block;
+        top: 3px;
+        left: 0;
+        width: 17px;
+        height: 17px;
+        border: 2px solid $Bg-dark;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          display: block;
+          width: 7px;
+          height: 7px;
+          background-color: $Bg-dark;
+          border-radius: 50%;
+          opacity: 0;
+          transition: .2s;
+        }
+      }
+      .radio:checked + .elem::before {
+        opacity: 1;
+      }    
+    }
+    .main_type_tickets_title {
+      font-size: $fsz28;
+      font-weight: bold;
+      margin: 0 0 50px 0;
+    }
+  }
+}
+
+.main_type_amount {
+  .main_type_amount_title {
+    font-size: $fsz28;
+    font-weight: bold;
+    margin: 0 0 25px 0;
+    padding-left: 50px;
+  }
+  .amount_basic {
+    font-size: $fsz22;
+    width: 150px;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .amount_input {
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 3px solid #000000;
+  }
+  .prev, .next {
+    font-size: $fsz32;
+    font-weight: 400;
+  }
+  .amount__basic-section {
+    position: relative;
+    .prev {
+      position: absolute;
+      bottom: 5px;
+      left: 14px;
+    }
+    .next {
+      position: absolute;
+      right: 14px;
+      bottom: 5px;
+    }
+    .amount_input {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    }
+  }
+  
+}
+
+
+
+// section tickets style end
