@@ -1,3 +1,16 @@
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/roboto-v29-latin-500.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./assets/fonts/roboto-v29-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/roboto-v29-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/roboto-v29-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/roboto-v29-latin-500.svg#Roboto') format('svg'); /* Legacy iOS */
+}
 /* roboto-100 - latin */
 @font-face {
   font-family: 'Roboto';
@@ -51,6 +64,8 @@
        url('./assets/fonts/roboto-v29-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
        url('./assets/fonts/roboto-v29-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }
+
+
 
 $Bg-dark: #030303;
 $Dark-red: #710707;
@@ -117,6 +132,7 @@ $fForum: 'Forum';
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 li {
@@ -300,6 +316,7 @@ a {
     font-size: $fsz22;
     color: white;
     padding-bottom: 25px;
+    font-weight: 300;
     span {
       color: #CAAA7D;
     }
@@ -330,6 +347,7 @@ a {
     line-height: 38px;
     color: $Bg-dark;
     max-width: 720px;
+    font-weight: 300;
   }
 }
 
@@ -655,10 +673,140 @@ a {
         color: $Bg-dark;
       }
     }
+  } 
+}
+
+// section tickets style end
+
+.parallax__section {
+  width: 100%;
+  height: 400px;
+  background-image: url('./assets/img/parallax.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+// section contacts style start
+
+.section__contacts {
+  padding: 75px 0;
+  .section__contacts_title {
+    @extend %secWhite;
+    margin-bottom: 103px;
   }
-  
+  .section__contacts_main {
+    display: flex;
+    justify-content: space-between;
+    .section__contacts_text {
+      max-width: 282px;
+      .text_title {
+        font-size: $fsz28;
+        font-weight: 500;
+        margin-bottom: 50px;
+      }
+      .contacts_text {
+        font-size: $fsz22;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+// section contacts style end
+
+// section footer style start
+.footer {
+  position: relative;
+}
+.section__footer_main {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 86px;
+  padding-bottom: 103px;
+  .footer__main_logo-nav {
+    display: flex;
+    justify-content: space-between;
+    .footer__main_logo {
+      background-image: url('./assets/svg/Vector.svg');
+      background-repeat: no-repeat;
+      background-position:  left top;
+      .footer__logo_text {
+        @include forum($fForum, 28px, white, 5px, uppercase, 74px);
+        margin: auto;
+      }
+    }
+    .first_column_item {
+      padding-left: 145px;
+      margin: 0;
+    }
+    .second_column_item {
+      padding-left: 150px;
+      margin: 0
+    }
+    .footer__nav_item {
+      @include robo(22px, 200, 2px);
+      padding-bottom: 25px;
+      .footer__nav_link {
+        color: white;
+        transition: 0.2s;
+        &:hover {
+          color: $Font-gold;
+        }
+      }
+    }
+  }
+  .footer__main_social {
+    align-items: bottom;
+  }
+  .social_main {
+    display: flex;
+    align-items: bottom;
+    margin-top: 90px;
+    .social_li {
+      position: relative;
+      box-sizing: border-box;
+      margin-left: 25px;
+      width: 48px;
+      height: 48px;
+      border: 1px solid #666666;;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        color: $Font-gold;
+      }
+      .social_svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .social_color {
+          transition: 0.2s;
+          &:hover {
+            fill: $Font-gold;
+          }
+        }
+      }
+    }
+  } 
+}
+
+.section__footer_subfooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
 
-// section tickets style end
+
+.section__footer_line {
+  position: absolute;
+  bottom: 124px;
+  width: 100%;
+  height: 3px;
+  background: #666666;
+}
+
+
+// section footer style end
