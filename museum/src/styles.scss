@@ -116,17 +116,7 @@ $fForum: 'Forum';
   letter-spacing: 5px;
   font-weight: normal;
   text-transform: uppercase;
-  color: $Bg-dark;
-
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 300px;
-    height: 2px;
-    background-color: $Dark-red;
-  }
+  color: $Bg-dark; 
 }
 
 body {
@@ -183,6 +173,7 @@ a {
           }
           .header__nav_link {
             color: white;
+            transition: 0.3s;
             &:hover {
               color: #9D8665;
             }
@@ -236,8 +227,10 @@ a {
       border-radius: 10px;
       padding: 21px 64px;
       background-color: $Dark-red;
+      transition: 0.3s;
       &:hover {
-        background-color: #9D8665;
+        background-color: $Font-gold;
+        border: 1px $Font-gold solid;
       }
     }
   }
@@ -266,7 +259,7 @@ a {
 .section__visiting_head {
   @extend %secWhite;
   padding-top: 75px;
-  
+  margin-bottom: 103px;
 }
 
 .section_border {
@@ -284,6 +277,20 @@ a {
   grid-column-gap: 60px;
   .section__visiting_card_link {
     display: block;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 106px;
+      left: 0;
+      width: 300px;
+      height: 2px;
+      background-color: $Dark-red;
+      transition: 0.2s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
     .card_title {
       position: relative;
       @extend %cardTitle;
@@ -348,13 +355,14 @@ a {
     color: $Bg-dark;
     max-width: 720px;
     font-weight: 300;
+    margin: 0;
   }
 }
 
 .section__video_grid {
   display: grid;
   grid-template-columns: repeat(3, 452px);
-  grid-template-rows: 845px 254px;
+  grid-template-rows: 735px 254px;
   grid-column-gap: 42px;
   grid-row-gap: 40px;
 }
@@ -365,7 +373,7 @@ a {
   .video_one_button {
     position: absolute;
     z-index: 2;
-    top: 265px;
+    top: 215px;
     left: 610px;
   }
 }
@@ -438,14 +446,22 @@ a {
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  .video_arrow_left {
+    cursor: pointer;
+  }
+  .video_arrow_right {
+    cursor: pointer;
+  }
   
   .video_arrow_left-pic {
+    transition: 0.2s;
    &:hover {
      fill: $Dark-red;
      cursor: pointer;
    }
   }
   .video_arrow_right-pic {
+    transition: 0.2s;
     &:hover {
       fill: $Dark-red;
       cursor: pointer;
@@ -461,6 +477,7 @@ a {
     background-color: #999999;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.2s;
     &:hover {
       background-color: $Dark-red;
     }
@@ -795,6 +812,19 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: $fsz22;
+  padding-bottom: 50px;
+  .subfooter_data {
+    margin: 0;
+    color: white;
+  }
+  .subfooter_link {
+    color: white;
+    transition: 0.2s;
+    &:hover {
+      color: $Font-gold;
+    }
+  }
 }
 
 
