@@ -221,7 +221,7 @@ a {
       font-weight: 300;
       margin-top: 25px;
       margin-bottom: 96px;
-    }
+    } 
     .section__welcome_link {
       font-size: $fsz22;
       letter-spacing: 2px;
@@ -391,6 +391,10 @@ a {
 
 .section__explore_slider {
   padding-top: 15px;
+  .section__explore_slider-pic {
+    max-width: 720px;
+    max-height: 700px;
+  }
 }
 
 // section explore style end
@@ -421,7 +425,7 @@ a {
 .section__video_grid {
   display: grid;
   grid-template-columns: repeat(3, 452px);
-  grid-template-rows: 735px 254px;
+  grid-template-rows: 678px 254px;
   grid-column-gap: 42px;
   grid-row-gap: 40px;
 }
@@ -429,6 +433,10 @@ a {
   position: relative;
   grid-column-start: 1;
   grid-column-end: 4;
+  .section__video_one-pic {
+    max-height: 707px;
+    max-width: 1440px;
+  }
   .video_one_button {
     position: absolute;
     z-index: 2;
@@ -730,13 +738,14 @@ a {
       text-align: right;
       margin-bottom: 60px;
     }
-    .amount_buy_now {
+    .popup-link {
       font-size: $fsz22;
       letter-spacing: 2px;
       color: white;
       background-color: $Bg-dark;
       border-radius: 2px;
-      border: none;
+      border: 1px solid $Bg-dark;
+      padding: 11px 37px;
       width: 175px;
       height: 50px;
       text-align: center;
@@ -747,6 +756,7 @@ a {
       &:hover {
         background: #9D8665;
         color: $Bg-dark;
+        border: 1px solid $Font-gold;
       }
       a {
         color: white;
@@ -912,8 +922,8 @@ a {
   top: 0;
   left: 0;
   z-index: 100;
-  // opacity: 0;
-  // visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.8s ease 0s;
   .popup__body {
     min-height: 100%;
@@ -927,8 +937,8 @@ a {
       width: 1440px;
       height: 845px;
       transition: all 0.8s ease 0s;
-      // opacity: 0;
-      // transform: translate(-100%, 0);
+      opacity: 0;
+      transform: translate(-100%, 0);
       .popup__main {
         display: flex;
         justify-content: space-between;
