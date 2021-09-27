@@ -569,17 +569,19 @@ a {
 }
 
 .main_type_amount {
+  text-align: right;
   .main_type_amount_title {
     font-size: $fsz28;
     font-weight: bold;
     margin: 0 0 25px 0;
-    padding-left: 50px;
+    text-align: right;
   }
   .amount_basic {
     font-size: $fsz22;
     width: 150px;
-    margin: 0;
-    margin-top: 10px;
+   
+    margin: 10px 0 15px 24px;
+    text-align: left;
   }
   .amount_input {
     width: 150px;
@@ -587,26 +589,70 @@ a {
     box-sizing: border-box;
     border: 3px solid #000000;
   }
-  .prev, .next {
-    font-size: $fsz32;
-    font-weight: 400;
-  }
-  .amount__basic-section {
+  .amount__basic_section {
     position: relative;
-    .prev {
+    .prev, .next {
+      font-size: $fsz32;
+      font-weight: 400;
+      cursor: pointer;
+      &:hover {
+        color: $Dark-red;
+      }
+    }
+    .prev_basic {
       position: absolute;
       bottom: 5px;
-      left: 14px;
+      left: 39px;
     }
-    .next {
+    .next_basic {
       position: absolute;
       right: 14px;
       bottom: 5px;
+    }
+    .prev_senior {
+      position: absolute;
+      top: 6px;
+      left: 39px;
+    }
+    .next_senior {
+      position: absolute;
+      top: 6px;
+      right: 14px;
     }
     .amount_input {
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
         -webkit-appearance: none;
+      }
+    }
+    input[type="number"] {
+      font-size: $fsz22;
+      text-align: center;
+    }
+    .amount_total {
+      font-size: $fsz28;
+      font-weight: bold;
+      margin-top: 50px;
+      text-align: right;
+      margin-bottom: 60px;
+    }
+    .amount_buy_now {
+      font-size: $fsz22;
+      letter-spacing: 2px;
+      color: white;
+      background-color: $Bg-dark;
+      border-radius: 2px;
+      border: none;
+      width: 175px;
+      height: 50px;
+      text-align: center;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background: #9D8665;
+        color: $Bg-dark;
       }
     }
   }
