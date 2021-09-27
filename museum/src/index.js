@@ -1,6 +1,7 @@
 import './styles.scss'
 import './js/scripts.js'
 import './js/gallery.js'
+import './js/popup.js'
 
 const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();
