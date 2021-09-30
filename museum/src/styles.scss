@@ -666,8 +666,9 @@ a {
         &::before {
           content: "";
           position: absolute;
-          top: 5px;
-          left: 5px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           display: block;
           width: 7px;
           height: 7px;
