@@ -207,7 +207,7 @@ a {
   display: flex;
   justify-content: space-between;
   position: relative;
-  min-height: 842px;
+  height: 810px;
   .section__welcome_text {
     z-index: 2;
     .section__title_welcome {
@@ -254,23 +254,28 @@ a {
 }
 .slider_buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  max-width: 600px;
+  max-height: 120px;
+  width: 100%;
+  height: 100%;
+  
   position: absolute;
   z-index: 10;
   right: 0;
   bottom: 0;
-  width: 600px;
-  height: 120px;
   background-color: $Bg-dark;
   .slider_count {
     font-size: $fsz22;
     color: white;
+    padding-left: 73px;
   }
   .welcome__slider_dots {
     display: flex;
     justify-content: space-between;
-    width: 180px;
+    max-width: 180px;
+    width: 100%;
     .welcome__slider_dot {
       width: 16px;
       height: 16px;
@@ -292,12 +297,24 @@ a {
   .welcome__slider_arrow {
     display: flex;
     justify-content: space-between;
-    width: 80px;
-    .welcome__slider_arrow_left {
-      cursor: pointer;
+    align-items: center;
+    max-width: 80px;
+    width: 100%;
+    padding-right: 75px;
+    padding-bottom: 4px;
+    .arrow__welcome {
+      color: white;
+      font-size: 30px;
+      background: black;
+      border: none;
     }
-    .welcome__slider_arrow_right {
+    .welcome__arrow_left {
       cursor: pointer;
+      margin-left: -5px;
+    }
+    .welcome__arrow_right {
+      cursor: pointer;
+      margin-right: -7px;
     }
     .welcome__arrow_color {
       transition: 0.2s;
@@ -318,7 +335,7 @@ a {
 .section__visiting_head {
   @extend %secWhite;
   padding-top: 75px;
-  margin-bottom: 103px;
+  margin-bottom: 75px;
 }
 
 .section_border {
@@ -340,12 +357,12 @@ a {
     &:after {
       content: "";
       position: absolute;
-      bottom: 106px;
+      bottom: 68px;
       left: 0;
       width: 300px;
       height: 2px;
       background-color: $Dark-red;
-      transition: 0.2s;
+      transition: 0.6s;
     }
     &:hover::after {
       width: 100%;
@@ -353,8 +370,10 @@ a {
     .card_title {
       position: relative;
       @extend %cardTitle;
+      margin: 20px 0 10px 0;
     }
     .card_subtitle {
+      margin: 22px 0 10px 0;
       font-size: $fsz22;
       font-weight: 200;
       color: $Bg-dark;
@@ -363,6 +382,7 @@ a {
       font-size: $fsz18;
       font-weight: 200;
       color: $Bg-dark;
+      margin: 0;
     }
   }
 }
@@ -373,16 +393,18 @@ a {
 .section__explore {
   display: flex;
   justify-content: space-between;
-  padding: 75px 0;
+  padding: 73px 0;
   .section_border {
     @extend %secBlack;
     margin-bottom: 78px;
   }
   .text_subtitle {
+    margin: 0;
     font-size: $fsz22;
     color: white;
     padding-bottom: 25px;
     font-weight: 300;
+    line-height: 38.5px;
     span {
       color: #CAAA7D;
     }
@@ -401,7 +423,7 @@ a {
 
 // section video style start
 .section__video {
-  padding: 75px 0;
+  padding: 75px 0 66px 0;
 }
 
 .section__video_text{
@@ -427,7 +449,7 @@ a {
   grid-template-columns: repeat(3, 452px);
   grid-template-rows: 678px 254px;
   grid-column-gap: 42px;
-  grid-row-gap: 40px;
+  grid-row-gap: 95px;
 }
 .section__video_one {
   position: relative;
@@ -460,7 +482,7 @@ a {
   background-color: $Bg-dark;
   position: relative;
   z-index: 2;
-  margin-top: -60px;
+  margin-top: -5px;
   &:last-child {
     padding-right: 25px;
   }
@@ -512,31 +534,27 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  .video_arrow_left {
+  margin: 33px 0 0 20px;
+  padding-bottom: 3px;
+  .video_arrow_left,
+  .video_arrow_right {
+    padding: 0;
+    font-size: 24px;
+    color: #999999;
     cursor: pointer;
+    background: white;
+    border: none;
+    transition: 0.3s;
+    &:hover {
+      color: $Dark-red;
+    }
   }
   .video_arrow_right {
-    cursor: pointer;
-  }
-  
-  .video_arrow_left-pic {
-    transition: 0.2s;
-   &:hover {
-     fill: $Dark-red;
-     cursor: pointer;
-   }
-  }
-  .video_arrow_right-pic {
-    transition: 0.2s;
-    &:hover {
-      fill: $Dark-red;
-      cursor: pointer;
-    }
+   
   }
   .slider_dot_item {
     margin-right: 20px;
-    
+    box-sizing: border-box;
   }
   .dot {
     width: 12px;
@@ -559,7 +577,7 @@ a {
 // section gallery style start
 
 .section__gallery {
-  padding: 75px 0;
+  padding-top: 75px;
   .section__gallery_title {
     @extend %secBlack;
   }   
@@ -608,10 +626,10 @@ a {
 // section tickets style start
 
 .section__tickets{
-  padding: 75px 0;
+  padding: 77px 0;
   .section__tickets_title {
     @extend %secWhite;
-    margin-bottom: 103px;
+    margin-bottom: 76px;
   }
 }
 .section__tickets_main {
@@ -625,18 +643,19 @@ a {
     padding-left: 60px;
     .label {
       display: block;
-      padding-bottom: 25px;
+      padding-bottom: 24px;
       .radio {
         display: none;
       }
       .text {
         cursor: pointer;
         font-size: $fsz22;
-        padding-left: 20px;
+        padding-left: 19px;
       }
       .elem {
+        box-sizing: border-box;
         display: inline-block;
-        top: 3px;
+        top: 1px;
         left: 0;
         width: 17px;
         height: 17px;
@@ -665,7 +684,7 @@ a {
     .main_type_tickets_title {
       font-size: $fsz28;
       font-weight: bold;
-      margin: 0 0 50px 0;
+      margin: 0 0 48px 0;
     }
   }
 }
@@ -681,8 +700,7 @@ a {
   .amount_basic {
     font-size: $fsz22;
     width: 150px;
-   
-    margin: 10px 0 15px 24px;
+    margin: 10px 0 14px 26px;
     text-align: left;
   }
   .amount_input {
@@ -690,6 +708,7 @@ a {
     height: 50px;
     box-sizing: border-box;
     border: 3px solid #000000;
+
   }
   .amount__basic_section {
     position: relative;
@@ -697,6 +716,8 @@ a {
       font-size: $fsz32;
       font-weight: 400;
       cursor: pointer;
+      background-color: white;
+      border: none;
       &:hover {
         color: $Dark-red;
       }
@@ -704,22 +725,26 @@ a {
     .prev_basic {
       position: absolute;
       bottom: 5px;
-      left: 39px;
+      left: 31px;
+      width: 20%;
     }
     .next_basic {
       position: absolute;
-      right: 14px;
+      right: 5px;
       bottom: 5px;
+      width: 20%;
     }
     .prev_senior {
       position: absolute;
       top: 6px;
-      left: 39px;
+      left: 31px;
+      width: 20%;
     }
     .next_senior {
       position: absolute;
       top: 6px;
-      right: 14px;
+      right: 5px;
+      width: 20%;
     }
     .amount_input {
       &::-webkit-outer-spin-button,
@@ -737,17 +762,18 @@ a {
       margin-top: 50px;
       text-align: right;
       margin-bottom: 60px;
+      line-height: 32.81px;
+      letter-spacing: 1.65px;
     }
     .popup-link {
       font-size: $fsz22;
+      font-weight: 300;
       letter-spacing: 2px;
       color: white;
       background-color: $Bg-dark;
       border-radius: 2px;
       border: 1px solid $Bg-dark;
       padding: 11px 37px;
-      width: 175px;
-      height: 50px;
       text-align: center;
       align-items: center;
       box-sizing: border-box;
@@ -757,6 +783,10 @@ a {
         background: #9D8665;
         color: $Bg-dark;
         border: 1px solid $Font-gold;
+        p {
+          margin: 0;
+          
+        }
       }
       a {
         color: white;
@@ -782,7 +812,7 @@ a {
   padding: 75px 0;
   .section__contacts_title {
     @extend %secWhite;
-    margin-bottom: 103px;
+    margin-bottom: 78px;
   }
   .section__contacts_main {
     display: flex;
@@ -792,7 +822,7 @@ a {
       .text_title {
         font-size: $fsz28;
         font-weight: 500;
-        margin-bottom: 50px;
+        margin: -3px 0 50px 0;
       }
       .contacts_text {
         display: block;
@@ -813,8 +843,8 @@ a {
 .section__footer_main {
   display: flex;
   justify-content: space-between;
-  padding-top: 86px;
-  padding-bottom: 103px;
+  padding-top: 84px;
+  padding-bottom: 74px;
   .footer__main_logo-nav {
     display: flex;
     justify-content: space-between;
@@ -827,13 +857,18 @@ a {
         margin: auto;
       }
     }
-    .first_column_item {
-      padding-left: 145px;
-      margin: 0;
-    }
-    .second_column_item {
-      padding-left: 150px;
-      margin: 0
+    .column_item {
+      display: flex;
+      justify-content: space-between;
+      .first_column_item {
+        padding-left: 145px;
+        margin: 0;
+        width: 128px;
+      }
+      .second_column_item {
+        padding-left: 127px;
+        margin: 0
+      }
     }
     .footer__nav_item {
       @include robo(22px, 200, 2px);
@@ -853,17 +888,17 @@ a {
   .social_main {
     display: flex;
     align-items: bottom;
-    margin-top: 90px;
-    .social_li {
+    margin-top: 75px;
+    .social_link {
       position: relative;
+      display: block;
       box-sizing: border-box;
-      margin-left: 25px;
       width: 48px;
       height: 48px;
-      border: 1px solid #666666;;
+      border: 1px solid #666666;
       border-radius: 50%;
-      cursor: pointer;
-      transition: 0.2s;
+      margin-left: 25px;
+      transition: 0.3s;
       &:hover {
         border: 1px solid $Font-gold;
       }
@@ -872,12 +907,26 @@ a {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        .social_color {
-          transition: 0.2s;
-          &:hover {
-            fill: $Font-gold;
-          }
+        fill: white;
+        transition: 0.3s;
+        &:hover {
+          fill: $Font-gold;
         }
+      }
+      .social_you {
+        width: 23px;
+      }
+      .social_inst {
+        width: 20px;
+      }
+      .social_face {
+        width: 12.5px;
+      }
+      .social_twit {
+        width: 20px;
+      }
+      .social_pint {
+        width: 20px;
       }
     }
   } 
@@ -888,12 +937,14 @@ a {
   justify-content: space-between;
   align-items: center;
   font-size: $fsz22;
-  padding-bottom: 50px;
+  padding: 0 0 50px 2px;
   .subfooter_data {
+    letter-spacing: 2px;
     margin: 0;
     color: white;
   }
   .subfooter_link {
+    letter-spacing: 2px;
     color: white;
     transition: 0.2s;
     &:hover {
