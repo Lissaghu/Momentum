@@ -383,7 +383,7 @@
     <div id="popup" class="popup">
         <div class="popup__body">
             <div class="popup__content">
-                <div class="popup__close close-popup">
+                <div class="popup__close ">
                     <span></span>
                     <span></span>
                 </div>
@@ -394,35 +394,37 @@
                         <form class="form" action="#">
                             <label class="label_input">
                                 <input class="date" type="date">
-                                <span class="date_text">Date</span>
+                                <!-- <span class="date_text">Date</span> -->
                             </label>
                             <label class="label_time">
                                 <input class="time" type="time">
-                                <span class="time_text">Time</span>
+                                <!-- <span class="time_text">Time</span> -->
                                 <img class="time_svg" src="./assets/svg/ticket_form/time.svg" alt="">
                             </label>
                             <label class="label__name">
                                 <input class="input__name" type="text">
-                                <span class="name__text">Name</span>
+                                <!-- <span class="name__text">Name</span> -->
                                 <img class="name__svg" src="./assets/svg/ticket_form/name.svg" alt="">
                             </label>
                             <label class="label__email">
                                 <input class="input__email" type="email">
-                                <span class="email__text">E-mail</span>
+                                <!-- <span class="email__text">E-mail</span> -->
                                 <img class="email__svg" src="./assets/svg/ticket_form/email.svg" alt="">
                             </label>
                             <label class="label__phone">
                                 <input class="input__phone" type="tel">
-                                <span class="phone__text">Phone</span>
+                                <!-- <span class="phone__text">Phone</span> -->
                                 <img class="phone__svg" src="./assets/svg/ticket_form/tel.svg" alt="">
                             </label>
                             <label class="label__ticket_type">
                                 <select class="select__ticket_type" name="select">
-                                    
+                                    <option value="2">Permanent exhibition</option>
+                                    <option value="3">Temporary exhibition</option>
+                                    <option value="4">Combined Admission</option>
                                 </select>
                                 <img class="select__svg" src="./assets/svg/ticket_form/Vector.svg" alt="">
                                 <img class="select__arrow" src="./assets/svg/ticket_form/arrow.svg" alt="">
-                                <span class="select__text">Ticket Type</span>
+                                <!-- <span class="select__text">Ticket Type</span> -->
                             </label>
                             <div class="entry__ticket">
                                 <p class="entry__ticket_title">Entry ticket</p>
@@ -432,28 +434,104 @@
                                         <p class="flex_text_senior">Senior 65+ (10 €)</p>
                                     </div>
                                     <div class="flex_input">
-                                        <label>
-                                            <input class="flex_input_num" type="number" value="2" min="1" max="20">   
-                                        </label>
-                                        <button class="flex_input_button">+</button>    
-                                        <button class="flex_input_button">&mdash;</button>
-                                        <label>
-                                            <input class="flex_input_num" type="number" value="2" min="1" max="20">         
-                                        </label>
-                                        <button class="flex_input_button">+</button>   
-                                        <button class="flex_input_button">&mdash;</button>
+                                        <div class="first_input">
+                                            <button class="flex_input_button first_button_prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
+                                            <input class="flex_input_num" type="number" value="2" min="0" max="20">   
+                                            <button class="flex_input_button first_button_next" type="button" onclick="this.previousElementSibling.stepUp()">+</button>    
+                                        </div>
                                         
+                                        <div class="second_input">
+                                            <button class="flex_input_button second_button_prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
+                                            <input class="flex_input_num" type="number" value="2" min="0" max="20">         
+                                            <button class="flex_input_button first_button_next" type="button" onclick="this.previousElementSibling.stepUp()">+</button>   
+                                        </div>   
                                     </div>
                                 </div>
-                            </div>
-                            
-
-                            
-                        </form>
-                        
+                            </div>  
+                        </form>   
                     </div>
                     <div class="popup__overview">
+                        <p class="overview_title">Overview</p>
+                        <p class="overview_subtitle">Tour to Louvre</p>
+                        <div class="overview_flex">
+                            <div class="overview_flex_svg">
+                                <svg class="ticket_svg date-overview">
+                                    <use xlink:href='./assets/svg/sprite.svg#date-overview'></use>
+                                </svg>
+                                <svg class="ticket_svg time-overview">
+                                    <use xlink:href='./assets/svg/sprite.svg#time-overview'></use>
+                                </svg>
+                                <svg class="ticket_svg date-overview">
+                                    <use xlink:href='./assets/svg/sprite.svg#white-time-overview'></use>
+                                </svg>
+                            </div>
+                            <div class="overview_flex_text">
+                                <p class="overview_date">Friday, August 19</p>
+                                <p class="overwiew_time">16 : 30</p>
+                                <p class="overview_type_ticket">Temporary exhibition</p>
+                            </div>
+                        </div>
+                            
+                            
+                        <div class="overview_price">
+                            <div class="price_types">
+                                <div class="price_types_svg">
+                                    <svg class="number_svg number-overview">
+                                        <use xlink:href='./assets/svg/sprite.svg#ticket-number'></use>
+                                    </svg>
+                                    <svg class="number_svg number-overview">
+                                        <use xlink:href='./assets/svg/sprite.svg#ticket-number'></use>
+                                    </svg>
+                                </div>
+                                <div class="price_types_flex">
+                                    <span class="price_type_basic price_type">Basic (20 €)</span>
+                                    <span class="price_type_senior price_type">Senior (10 €)</span>
+                                </div>
 
+                            </div>
+                            <div class="price_numbers">
+                                <span class="price_number_basic price_number">40 €</span>
+                                <span class="price_number_senior price_number">20 €</span>
+                            </div>
+                        </div>
+
+                        <div class="overview_total">
+                            <p class="overview_total">Total:</p>
+                            <p class="overview_total_price">60 €</p>
+                        </div>    
+                        <div class="total_cards">
+                            <div class="total_card_front">
+                                <div class="front_left_right">
+                                    <div class="left_front">
+                                        <p class="front_title">Card number</p>
+                                        <input class="input_text_front" type="text">
+                                        <p class="front_title">Expiration date</p>
+                                        <div class="input_number_flex">
+                                            <input class="input_number_front" type="number" value="03">
+                                            <input class="input_number_front_year" type="number" value="2024">
+                                        </div>
+                                    </div>
+                                    <div class="right_front">
+                                        <img class="front_picture" src="./assets/img/Visa.png" alt="">
+                                        <img class="front_picture" src="./assets/img/Mastercard.png" alt="">
+                                    </div>
+                                </div>
+                               <p class="front_title">Cardholder name</p>
+                               <input class="input_bottom_front" type="text">   
+                            </div>
+                            <div class="total_card_back_wrap">
+                                <div class="total_card_back">
+                                    <p class="card_back_title">CVC/CVV</p>
+                                    <input class="input_back_number" type="number">
+                                    <p class="card_back_subtitle">The last <br>3 or 4 digits <br>on back <br>of the card</p>
+                                </div>
+                            </div>
+
+                            <button class="book_tickets" type="button">Book</button>
+                            
+                        </div>
+                        
+                         
                     </div>
                 </div>
 
