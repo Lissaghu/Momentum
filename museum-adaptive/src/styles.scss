@@ -436,7 +436,7 @@ a {
     @media screen and (max-width: 1440px) {
       width: calc(150px + (300 - 150) * ((100vw - 1024px) / (1440 - 1024)));
     }
-    
+    min-width: 150px;
     height: 2px;
     background-color: $Dark-red;
     transition: 0.6s;
@@ -621,11 +621,11 @@ a {
 
 .video_controls {
   @media screen and (min-width: 1441px) {
-    max-width: 1440px;
+    width: 1440px;
     height: 85px;
   }
   @media screen and (max-width: 1440px) {
-    max-width: calc(984px + (1440 - 984) * ((100vw - 1024px) / (1440 - 1024)));
+    width: calc(984px + (1440 - 984) * ((100vw - 1024px) / (1440 - 1024)));
     height: calc(60px + (85 - 60) * ((100vw - 1024px) / (1440 - 1024)));
   }
   display: flex;
@@ -670,10 +670,10 @@ a {
     height: calc(5px + (8 - 5) * ((100vw - 1024px) / (1440 - 1024)));
   }
   -webkit-appearance: none;
-  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 53%, #fff 54%, #fff 100%);
+  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 53%, #C4C4C4 54%, #C4C4C4 100%);
   width: 100%;
   cursor: pointer;
-  background-color: white;
+  
   &::-webkit-slider-thumb {
     @media screen and (min-width: 1441px) {
       width: 15px;
@@ -699,7 +699,7 @@ a {
     max-width: calc(143px + (155 - 143) * ((100vw - 1024px) / (1440 - 1024)));
     height: calc(5px + (8 - 5) * ((100vw - 1024px) / (1440 - 1024)));
   }
-  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 43%, #fff 44%, #fff 100%);
+  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 43%, #C4C4C4 44%, #C4C4C4 100%);
 }
 
 .section__video_five {
@@ -2030,7 +2030,9 @@ a {
   .header__wrap {
     display: block;
     height: calc(110px + (130 - 110) * ((100vw - 768px) / (1024 - 768)));
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
     padding: 0 20px;
+    
   }
 
   .header__logo {
@@ -2044,7 +2046,7 @@ a {
     position: absolute;
     top: calc(109px + (129 - 109) * ((100vw - 768px) / (1024 - 768)));
     left: -100%;
-    z-index: 20;
+    z-index: 999;
     margin: 0;
     padding: 36px 0 25px 55px;
     background-color: $Bg-dark;
@@ -2075,24 +2077,14 @@ a {
   // section welcome-----------------
 
   .section_wrap {
-    padding: 0 20px;
     max-width: 1024px;
-    width: 100%;
+    padding: 0 20px;
   }
 
   .section__welcome {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
     margin-top: -1px;
   }
-
-  // .section__welcome_text {
-  //   position: relative;
-  //   &::before {
-  //     content: "";
-  //     position: absolute;
-  //     bottom: 0;
-  //     left: 0;
-  //   }
-  // }
 
   .section__title_welcome {
     line-height: 90px;
@@ -2125,11 +2117,11 @@ a {
   }
 
   .section__welcome_slider-wrap {
-    right: 60px;
+    right: 20px;
   }
 
   .slider_buttons {
-    right: 60px;
+    right: 20px;
     max-width: 700px;
     height: calc(100px + (120 - 100) * ((100vw - 768px) / (1024 - 768)));
   }
@@ -2153,13 +2145,14 @@ a {
 
   .section__visiting {
     padding: 0 20px;
-    max-width: 1024px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
     width: 100%;
     
   }
   .section__visiting_head {
     padding-top: 72px;
-    max-width: 984px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
     margin-bottom: 60px;
   }
 
@@ -2168,12 +2161,12 @@ a {
   }
 
   .section__visiting_card {
-    grid-template-columns: repeat(auto-fit, 330px);
+    grid-template-columns: repeat(auto-fit, calc(280px + (330 - 280) * ((100vw - 768px) / (1024 - 768))));
     grid-row-gap: 59px;
     grid-column-gap: 108px;
-    padding-right: 42px;
+    padding-right: 3px;
     img {
-      max-width: 330px;
+      max-width: calc(280px + (330 - 280) * ((100vw - 768px) / (1024 - 768)));
       width: 100%;
     }
   }
@@ -2187,17 +2180,27 @@ a {
   .card_title {
     letter-spacing: 3px;
     margin-top: 22px;
+    font-size: calc(22px + (28 - 22) * ((100vw - 768px) / (1024 - 768)));
   }
+  
+  .card_subtitle {
+    font-size: calc(18px + (20 - 18) * ((100vw - 768px) / (1024 - 768)));
+  }
+
+  
 
   // section explore-------------
 
   .section__explore {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
     display: block;
   }
 
   .section_explore_title {
     padding-top: 69px;
     max-width: 984px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
     margin-bottom: 60px;
     
   }
@@ -2213,19 +2216,23 @@ a {
   }
 
   .section__explore_slider {
-    padding-top: 59px;
+    padding: 59px 5px 55px 0;
     text-align: center;
-    padding-right: 40px;
-    padding-bottom: 55px;
   }
 
   // section video----------------
+
+  .section__video {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+  }
 
   .section__video_text {
     padding-bottom: 48px;
   }
 
   .section__video_title {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
     padding-top: 70px;
   }
 
@@ -2244,6 +2251,16 @@ a {
     // }
   }
 
+  .section__video_one-pic {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+  }
+
+  .video_one_button {
+    top: calc(125px + (146 - 125) * ((100vw - 768px) / (1024 - 768)));
+    left: calc(324px + (416 - 324) * ((100vw - 768px) / (1024 - 768)));
+    width: calc(80px + (152 - 80) * ((100vw - 768px) / (1024 - 768)));
+  }
+
   .video_controls_play {
     padding: 0;
   }
@@ -2260,6 +2277,8 @@ a {
   }
 
   .video_controls {
+    width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    height: calc(53px + (60 - 53) * ((100vw - 768px) / (1024 - 768)));
     justify-content: space-around;
     &:last-child {
       padding-right: 0;
@@ -2267,35 +2286,43 @@ a {
   }
 
   .slider_dot {
-    padding: 0 20px 17px 0;
+    padding: 0 0 17px 15px;
     margin: 22px 0 35px;
   }
 
   // section gallery------------
 
-  .section__gallery_title {
-    padding-top: 70px;
+  .section__gallery {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
   }
 
+  .section__gallery_container {
+    margin-top: 70px;
+  }
 
+  .section__gallery_title {
+    padding-top: 70px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
+  }
 
   // section buy tickets--------------
 
   .section__tickets{
-    padding: calc(40px + (66 - 40) * ((100vw - 768px) / (1024 - 768))) 20px;
-    padding-bottom: 60px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    padding: calc(40px + (66 - 40) * ((100vw - 768px) / (1024 - 768))) 0 60px 0;
   }
 
   .section__tickets_title {
     margin-bottom: 61px;
-    max-width: 984px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
   }
   
 
   .section__tickets_main_pic {
     width: calc(444px + (700 - 444) * ((100vw - 768px) / (1024 - 768)));
-    min-height: 440px;
-    height: calc(340px + (340 - 440) * ((100vw - 1024px) / (1440 - 1024)));
+    height: calc(340px + (440 - 340) * ((100vw - 768px) / (1024 - 768)));
   }
 
   .main_columns {
@@ -2307,7 +2334,7 @@ a {
   }
 
   .main_type_amount {
-    margin-right: 70px;
+    margin-right: 29px;
   }
 
   .main_type_amount_title {
@@ -2339,34 +2366,35 @@ a {
 
   .prev_basic {
     left: 11px;
-    bottom: 7px;
+    bottom: 6px;
   }
 
   .next_basic {
     right: 8px;
-    bottom: 7px;
+    bottom: 5px;
   }
 
   .prev_senior {
     left: 11px;
-    top: 4px;
+    top: 7px;
   }
 
   .next_senior {
     right: 8px;
-    top: 5px;
+    top: 8px;
   }
 
   // section contacts------------
 
   .section__contacts {
-    padding: calc(40px + (68 - 40) * ((100vw - 768px) / (1024 - 768))) 20px;
-    max-width: 984px;
-    padding-bottom: 60px;
+    padding: calc(40px + (68 - 40) * ((100vw - 768px) / (1024 - 768))) 0 60px 0;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
   }
 
   .section__contacts_title {
     margin-bottom: 63px;
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1024 - 768)));
   }
 
   .text_title {
@@ -2381,7 +2409,12 @@ a {
 
   // section footer-------------
 
+  .section__footer {
+    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
+  }
+
   .section__footer_main  {
+    flex-wrap: wrap;
     max-width: 984px;
     flex-shrink: 1;
   }
@@ -2426,22 +2459,11 @@ a {
     margin-top: -1px;
     padding: 336px 0 0 55px;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     background-color: $Bg-dark;
     transition: 0.8s;
     transform: translateX(-100%);
     opacity: 0;
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   bottom: 118px;
-    //   left: 55px;
-    //   max-width: calc(310px + (658 - 310) * ((100vw - 420px) / (768 - 420)));
-    //   width: 100%;
-    //   height: 1px;
-    //   background-color: white;
-    //   opacity: 0.5;
-    // }
   }
 
   .menu_open .main_menu_768px {
@@ -2486,8 +2508,6 @@ a {
 
   .section_wrap {
     max-width: 768px;
-    width: 100%;
-    padding: 0 20px;
     transition: 0.4s;
   }
 
@@ -2534,6 +2554,293 @@ a {
 
   .welcome__slider_arrow {
     padding-right: 165px;
+  }
+
+  // section visiting--------------
+
+  .section__visiting {
+    margin-bottom: 80px;
+  }
+
+  .section__visiting_card {
+    grid-template-columns: repeat(auto-fit, 280px);
+    grid-row-gap: 40px;
+    grid-column-gap: 56px;
+    padding-right: 42px;
+    img {
+      max-width: 280px;
+      width: 100%;
+    }
+  }
+
+  .section__visiting_head {
+    padding-top: 40px;
+    line-height: 60px;
+    margin-bottom: 39px;
+  }
+
+  .section__visiting_card_link {
+    &:after {
+      bottom: 58px;
+    }
+  }
+
+  .section_border {
+    padding-bottom: 20px;
+  }
+
+  .card_title {
+    margin-top: 21px;
+    line-height: 24.29px;
+  }
+
+  .card_subtitle {
+    margin-bottom: 8px;
+  }
+
+  .card_text {
+    font-size: 16px;
+    line-height: 18.75px;
+  }
+
+  // section explore------------
+
+  .section_explore_title {
+    line-height: 60px;
+    padding-top: 40px;
+    margin-bottom: 0;
+  }
+
+  .text_subtitle {
+    display: none;
+  }
+
+  .section__explore_slider {
+    padding: 42px 45px 40px 0;
+  }  
+
+  // section video------------
+
+  .section__video_title {
+    line-height: 60px;
+    padding-top: 40px;
+  }
+
+  .section__video_text {
+    padding-bottom: 20px;
+  }
+
+  .video_controls {
+    margin-top: -1px;
+    position: relative;
+  }
+
+  .progress {
+    position: absolute;
+    top: -5px;
+    max-width: 728px;
+    width: 100%;
+    height: 5px;
+  }
+
+  .volume {
+    max-width: 486px;
+    width: 100%;
+    height: 5px;
+  }
+
+  .fullscrin {
+    padding-right: 15px;
+  }
+
+  .play {
+    padding-left: 15px;
+  }
+
+  .section__video_grid {
+    grid-template-columns: repeat(2, 354px);
+    grid-template-rows: 382px 199px;
+    grid-column-gap: 20px;
+    grid-row-gap: 21px;
+    iframe {
+      width: 354px;
+      height: 199px;
+    }
+  }
+
+  .section__video_four {
+    display: none;
+  }
+
+  .slider_dot {
+    margin: 16px 0 55px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  // section gallery----------------
+
+  .section__gallery_container {
+    width: 750px;
+    margin-top: 40px;
+    height: 1079px;
+  }
+
+  .gallery__gradient {
+    max-width: 745px;
+    width: 100%;
+  }
+
+  .section__gallery {
+    height: 1220px;
+    .section_wrap {
+      padding-right: 0;
+    }
+  } 
+
+  .section__gallery_title {
+    line-height: 60px;
+    padding-top: 40px;
+  }
+
+  .section__gallery_inner-container {
+    height: 3400px;
+    column-gap: 0;
+  }
+
+  .section__gallery_item {
+    width: 352px;
+  }
+
+  // section tickets-------------
+
+  .section__tickets {
+    padding-bottom: 40px;
+    max-width: calc(420px + (728 - 420) * ((100vw - 420px) / (768 - 420)));
+  }
+
+  .section__tickets_title {
+    line-height: 60px;
+    padding-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .section__tickets_main_pic {
+    width: calc(380px + (444 - 380) * ((100vw - 420px) / (768 - 420)));
+    height: 340px;
+  }
+
+  .main_type_amount {
+    margin-right: 88px;
+  }
+
+  .main_type_amount_title {
+    margin-bottom: 37px;
+  }
+
+  .amount_basic_senior {
+    margin-top: 24px;
+  }
+
+  .amount_total {
+    margin: 40px 0 40px;
+    padding-left: 2px;
+  }
+
+  // parallax section-------------
+
+  .parallax__section {
+    height: 300px;
+  }
+
+  // section contacts----------------
+
+  .section__contacts {
+    max-width: calc(420px + (728 - 420) * ((100vw - 420px) / (768 - 420)));
+  }
+
+  .section__contacts_title {
+    line-height: 60px;
+    padding-top: 40px;
+    margin-bottom: 42px;
+  }
+
+  .section__contacts_main {
+    display: block;
+  }
+
+  .text_title {
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 42px;
+  }
+
+  .contacts_text {
+    font-size: 18px;
+    line-height: 21px;  
+  }
+
+  .section__contacts_main-pic {
+    max-width: 728px;
+    width: 100%;
+    max-height: 476px;
+    height: 100%;
+    margin: 22px 0 69px 0;
+  }
+
+  // section footer----------
+
+  .section__footer {
+    max-width: calc(420px + (728 - 420) * ((100vw - 420px) / (768 - 420)));
+  }
+
+  .section__footer_main {
+    flex-wrap: wrap;
+    padding-top: 52px;
+    padding-bottom: 80px;
+  }
+
+  .first_column_item {
+    padding: 2px 0 0 99px;
+  }
+
+  .footer__nav_item {
+    padding-bottom: 21px;
+  }
+
+  .footer__nav_link {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .second_column_item {
+    padding: 2px 0 0 127px;
+  }
+
+  .footer__main_social {
+    max-width: 380px;
+    width: 100%;
+    height: 48px;
+    margin: 25px 0 0 273px;
+  }
+
+  .social_main {
+    margin: 0;
+  }
+
+  .section__footer_line {
+    height: 1px;
+    bottom: 10px;
+  }
+
+  // section subfooter--------------
+
+  .section__footer_subfooter {
+    padding-bottom: 40px;
+    margin-right: 40px;
   }
 
 
