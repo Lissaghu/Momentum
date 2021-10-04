@@ -379,6 +379,10 @@ a {
 
 //slider styles end
 
+.main_menu_420px {
+  display: none;
+}
+
 //section__welcome style end
 
 // section__visiting style start
@@ -2466,13 +2470,32 @@ a {
   .main_menu_768px {
     display: block;
     margin-top: -1px;
-    padding: 336px 0 0 55px;
+    padding: 336px 20px 0 55px;
+    max-height: calc(544px + (865 - 544) * ((100vw - 420px) / (768 - 420)));
+    max-width: calc(420px + (768 - 420) * ((100vw - 420px) / (768 - 420)));
     position: absolute;
     z-index: 998;
     background-color: $Bg-dark;
     transition: 0.8s;
     transform: translateX(-100%);
     opacity: 0;
+  }
+
+  @media screen and (max-width: 766px) {
+    .menu_open .main_menu-pic1 {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    .menu_open .main_menu-pic2,
+    .main_menu-pic3 {
+      display: none;
+    }
+    .main_menu_420px {
+      display: flex;
+      column-gap: 12px;
+    }
   }
 
   .menu_open .main_menu_768px {
@@ -2482,25 +2505,33 @@ a {
 
   .menu_open .main_menu-pic1 {
     margin-bottom: 17px;
+    max-width: calc(300px + (658 - 300) * ((100vw - 420px) / (768 - 420)));
+  }
+
+  .menu_open .main_menu-pic2,
+  .main_menu-pic3 {
+    max-width: calc(95px + (319 - 95) * ((100vw - 420px) / (768 - 420)));
+    height: calc(95px + (161 - 95) * ((100vw - 420px) / (768 - 420)));
   }
 
   .menu_open .main_menu_flex-pic {
     display: flex;
     justify-content: space-between;
-    max-width: 658px;
+    column-gap: 20px;
+    max-width: calc(310px + (658 - 310) * ((100vw - 420px) / (768 - 420)));
     width: 100%;
   }
 
   .menu_open .Main_menu-768px_social .social_main {
     justify-content: center;
     align-items: center;
-    margin: 70px 0 0 0;
-    padding: 0 25px 35px 0;
+    margin: calc(42px + (70 - 42) * ((100vw - 420px) / (768 - 420))) 0 0 0;
+    padding: 0 calc(5px + (25 - 5) * ((100vw - 420px) / (768 - 420))) calc(24px + (35 - 24) * ((100vw - 420px) / (768 - 420))) 0;
     position: relative;
     &::before {
       content: "";
       position: absolute;
-      bottom: 118px;
+      bottom: calc(95px + (118 - 95) * ((100vw - 420px) / (768 - 420)));
       left: 0;
       max-width: calc(310px + (658 - 310) * ((100vw - 420px) / (768 - 420)));
       width: 100%;
@@ -2648,6 +2679,10 @@ a {
   }
 
   // section video------------
+
+  .section__video {
+    max-width: calc(380px + (728 - 380) * ((100vw - 420px) / (768 - 420)));
+  }
 
   .section__video_title {
     line-height: calc(40px + (60 - 40) * ((100vw - 420px) / (768 - 420)));
@@ -3214,6 +3249,14 @@ a {
     padding-bottom: 43px;
   }
         
-}      
+}     
+
+@media screen and (max-width: 320px) {
+  
+  .section_wrap {
+    max-width: 320px;
+  }
+
+}
   
   
