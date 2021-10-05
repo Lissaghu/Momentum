@@ -2481,6 +2481,22 @@ a {
     opacity: 0;
   }
 
+  @media screen and (max-width: 420px) {
+    .main_menu_768px {
+      max-height: calc(452px + (544 - 452) * ((100vw - 320px) / (420 - 320)));
+      max-width: calc(320px + (420 - 320) * ((100vw - 320px) / (420 - 320)));
+      padding: calc(280px + (336 - 280) * ((100vw - 320px) / (420 - 320))) 20px 0 calc(35px + (55 - 35) * ((100vw - 320px) / (420 - 320)));
+    }
+    .main_menu_420-item {
+      max-height: calc(70px + (95 - 70) * ((100vw - 320px) / (420 - 320)));
+      max-width: calc(70px + (95 - 70) * ((100vw - 320px) / (420 - 320)));
+    }
+    .header__nav_item {
+      padding-bottom: calc(15px + (25 - 15) * ((100vw - 320px) / (420 - 320)));
+    }
+    
+  }
+
   @media screen and (max-width: 766px) {
     .menu_open .main_menu-pic1 {
       display: none;
@@ -3003,7 +3019,7 @@ a {
   }
 
   .section__welcome {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
   .section__title_welcome {
@@ -3047,7 +3063,7 @@ a {
   // section visiting---------------
 
   .section__visiting {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
     margin-bottom: 38px;
   }
 
@@ -3079,6 +3095,7 @@ a {
   
   // section explore--------------------
   .section__explore {
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
     max-width: 380px;
   }
 
@@ -3086,7 +3103,7 @@ a {
   // section video--------------------
 
   .section__video {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
   .section__video_title {
@@ -3140,7 +3157,7 @@ a {
   // section gallery----------------
 
   .section__gallery {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
 
@@ -3148,11 +3165,15 @@ a {
   // section tickets-------------------
 
   .section__tickets {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
   .section__tickets_title {
     padding-top: 35px;
+  }
+
+  .section__tickets_main_pic {
+    width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320)));
   }
 
   .main_type_amount {
@@ -3189,7 +3210,7 @@ a {
   // section contacts---------------
 
   .section__contacts {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
     padding-bottom: 42px;
   }
 
@@ -3214,7 +3235,7 @@ a {
   // section footer-----------------
 
   .section__footer {
-    max-width: 380px;
+    max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
   .footer__logo_text {
@@ -3248,6 +3269,14 @@ a {
   .section__footer_subfooter {
     padding-bottom: 43px;
   }
+
+  .second_column_item1 {
+    padding-left: calc(44px + (94 - 44) * ((100vw - 320px) / (420 - 320)));
+  }
+
+  .third_column_item1 {
+    padding-left: calc(32px + (82 - 32) * ((100vw - 320px) / (420 - 320)));
+  }
         
 }     
 
@@ -3256,6 +3285,79 @@ a {
   .section_wrap {
     max-width: 320px;
   }
+
+  .slide_img {
+    width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320)));
+    height: calc(220px + (285 - 220) * ((100vw - 320px) / (420 - 320)));
+  }
+
+  .section__welcome {
+    max-width: 280px;
+  }
+
+  .slider_buttons {
+    margin-right: -20px;
+  }
+
+  .slider_count {
+    padding-left: 100px;
+  }
+
+
+
+
+
+  .section__visiting {
+    max-width: 280px;
+  }
+
+
+
+
+  .section__explore {
+    max-width: 280px;
+  }
+
+
+
+  .section__video {
+    max-width: 280px;
+  }
+
+  .section__video_grid {
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 180px 81px;
+    grid-row-gap: 20px;
+    iframe {
+      width: 130px;
+      height: 81px;
+    }
+  }
+
+
+  .section__gallery {
+    max-width: 280px;
+  }
+
+
+  .section__tickets {
+    max-width: 280px;
+  }
+
+  .section__contacts {
+    max-width: 280px;
+  }
+
+
+  .section__footer {
+    max-width: 280px;
+  }
+
+  
+
+
+
+
 
 }
   
