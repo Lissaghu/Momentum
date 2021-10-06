@@ -2470,8 +2470,8 @@ a {
   .main_menu_768px {
     display: block;
     margin-top: -1px;
-    padding: 336px 20px 0 55px;
-    max-height: calc(544px + (865 - 544) * ((100vw - 420px) / (768 - 420)));
+    padding: 336px 0px 0 55px;
+    max-height: calc(544px + (864 - 544) * ((100vw - 420px) / (768 - 420)));
     max-width: calc(420px + (768 - 420) * ((100vw - 420px) / (768 - 420)));
     position: absolute;
     z-index: 998;
@@ -2481,10 +2481,14 @@ a {
     opacity: 0;
   }
 
+  .main_menu_768px .social_link {
+    margin-left: calc(5px + (25 - 5) * ((100vw - 420px) / (768 - 420)));
+  }
+
   @media screen and (max-width: 420px) {
     .main_menu_768px {
       max-height: calc(452px + (544 - 452) * ((100vw - 320px) / (420 - 320)));
-      max-width: calc(320px + (420 - 320) * ((100vw - 320px) / (420 - 320)));
+      max-width: calc(320px + (420 - 420) * ((100vw - 320px) / (420 - 320)));
       padding: calc(280px + (336 - 280) * ((100vw - 320px) / (420 - 320))) 20px 0 calc(35px + (55 - 35) * ((100vw - 320px) / (420 - 320)));
     }
     .main_menu_420-item {
@@ -2498,13 +2502,13 @@ a {
   }
 
   @media screen and (max-width: 766px) {
-    .menu_open .main_menu-pic1 {
+    .main_menu-pic1 {
       display: none;
     }
   }
 
   @media screen and (max-width: 540px) {
-    .menu_open .main_menu-pic2,
+    .main_menu-pic2,
     .main_menu-pic3 {
       display: none;
     }
@@ -2577,13 +2581,13 @@ a {
     line-height: calc(40px + (60 - 40) * ((100vw - 420px) / (768 - 420)));
     font-size: calc(28px + (40 - 28) * ((100vw - 420px) / (768 - 420)));
     text-align: center;
-    padding: 2px 35px 0 0;
+    padding: 2px 0px 0 0;
   }
 
   .section__welcome_subtitle  {
     font-size: calc(16px + (20 - 16) * ((100vw - 420px) / (768 - 420)));
     text-align: center;
-    padding-right: 37px;
+    padding-right: 0px;
     margin-bottom: 46px;
   }
 
@@ -2617,7 +2621,7 @@ a {
 
   .section__visiting {
     max-width: calc(380px + (728 - 380) * ((100vw - 420px) / (768 - 420)));
-    margin-bottom: 80px;
+    margin-bottom: 82px;
   }
 
   .section__visiting_head {
@@ -2629,7 +2633,6 @@ a {
     grid-template-columns: repeat(auto-fit, 280px);
     grid-row-gap: 40px;
     grid-column-gap: 56px;
-    padding-right: 42px;
     img {
       max-width: 280px;
       width: 100%;
@@ -2686,7 +2689,7 @@ a {
   .section__explore_slider {
     max-width: calc(380px + (720 - 380) * ((100vw - 420px) / (768 - 420)));
     max-height: calc(368px + (700 - 368) * ((100vw - 420px) / (768 - 420)));
-    padding: 42px calc(0px + (0 - 45) * ((100vw - 420px) / (768 - 420))) 40px 0;
+    padding: 42px calc(0px + (0 - 45) * ((100vw - 420px) / (768 - 420))) 45px 0;
   }  
 
   .section__explore_slider-pic {
@@ -2704,6 +2707,10 @@ a {
     line-height: calc(40px + (60 - 40) * ((100vw - 420px) / (768 - 420)));
     font-size: calc(28px + (40 - 28) * ((100vw - 420px) / (768 - 420)));
     padding-top: 40px;
+  }
+
+  .section__video_one {
+    max-width: 728px;
   }
 
   .section__video_text {
@@ -2745,12 +2752,12 @@ a {
 
   .section__video_grid {
     grid-template-columns: repeat(2, calc(180px + (354 - 180) * ((100vw - 420px) / (768 - 420))));
-    grid-template-rows: calc(226px + (382 - 226) * ((100vw - 420px) / (768 - 420))) calc(101px + (382 - 101) * ((100vw - 420px) / (768 - 420)));
+    grid-template-rows: calc(226px + (382 - 226) * ((100vw - 420px) / (768 - 420))) calc(101px + (199 - 101) * ((100vw - 420px) / (768 - 420)));
     grid-column-gap: 20px;
     grid-row-gap: 21px;
     iframe {
       width: calc(180px + (354 - 180) * ((100vw - 420px) / (768 - 420)));
-      height: calc(101px + (382 - 101) * ((100vw - 420px) / (768 - 420)));
+      height: calc(101px + (199 - 101) * ((100vw - 420px) / (768 - 420)));
     }
   }
 
@@ -2796,6 +2803,7 @@ a {
   }
 
   .section__gallery_inner-container {
+    max-width: 748px;
     height: calc(1850px + (3400 - 1850) * ((100vw - 420px) / (768 - 420)));
     column-gap: 0;
   }
@@ -2810,6 +2818,7 @@ a {
   // section tickets-------------
 
   .section__tickets {
+    padding-top: 0;
     padding-bottom: 40px;
     max-width: calc(420px + (728 - 420) * ((100vw - 420px) / (768 - 420)));
   }
@@ -2817,7 +2826,7 @@ a {
   .section__tickets_title {
     line-height: calc(40px + (60 - 40) * ((100vw - 420px) / (768 - 420)));
     font-size: calc(28px + (40 - 28) * ((100vw - 420px) / (768 - 420)));
-    padding-top: 40px;
+    padding-top: 38px;
     margin-bottom: 40px;
   }
 
@@ -2833,7 +2842,7 @@ a {
   }
 
   .main_type_amount {
-    margin-right: 88px;
+    margin-right: 48px;
   }
 
   .main_type_amount_title {
@@ -2865,12 +2874,15 @@ a {
 
   .section__contacts {
     max-width: calc(380px + (728 - 380) * ((100vw - 420px) / (768 - 420)));
+    padding-top: 0;
+    padding-bottom: 0;
+
   }
 
   .section__contacts_title {
     line-height: calc(40px + (60 - 40) * ((100vw - 420px) / (768 - 420)));
     font-size: calc(28px + (40 - 28) * ((100vw - 420px) / (768 - 420)));
-    padding-top: 40px;
+    padding-top: 42px;
     margin-bottom: 42px;
   }
 
@@ -2894,7 +2906,7 @@ a {
     width: 100%;
     max-height: 476px;
     height: 100%;
-    margin: 22px 0 69px 0;
+    margin: 22px 0 70px 0;
   }
 
   // section footer----------
@@ -2913,9 +2925,6 @@ a {
     font-size: calc(16px + (28 - 16) * ((100vw - 420px) / (768 - 420)));
   }
 
-  .footer__main_logo {
-    background-size: 29px 16px;
-  }
 
   // footer 660px------------------------start
 
@@ -2970,7 +2979,7 @@ a {
     max-width: 380px;
     width: 100%;
     height: 48px;
-    margin: 0 0 0 calc(0px + (273 - 0) * ((100vw - 420px) / (768 - 420)));
+    margin: 25px 0 0 calc(0px + (273 - 0) * ((100vw - 420px) / (768 - 420)));
   }
 
   .social_main {
@@ -2979,19 +2988,22 @@ a {
 
   .section__footer_line {
     height: 1px;
-    bottom: 10px;
+    bottom: 104px;
   }
 
   // section subfooter--------------
 
   .section__footer_subfooter {
     padding-bottom: 40px;
-    margin-right: 40px;
   }
 
   .subfooter_data,
   .subfooter_link {
     font-size: calc(16px + (22 - 16) * ((100vw - 420px) / (768 - 420)));
+  }
+
+  .rs-school_link {
+    padding-left: 5px;
   }
 
 }
@@ -3014,12 +3026,22 @@ a {
 
   // section welcome-----------------
 
+  // .main_menu_768px {
+  //   max-width: 420px;
+  //   width: 100%;
+  // }
+
   .section_wrap {
     max-width: 420px;
   }
 
+  .menu_open .section__welcome {
+    opacity: 0;
+  }
+
   .section__welcome {
     max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
+    transition: 0.4s;
   }
 
   .section__title_welcome {
@@ -3096,7 +3118,7 @@ a {
   // section explore--------------------
   .section__explore {
     max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
-    max-width: 380px;
+    
   }
 
 
@@ -3169,7 +3191,7 @@ a {
   }
 
   .section__tickets_title {
-    padding-top: 35px;
+    // padding-top: 38px;
   }
 
   .section__tickets_main_pic {
@@ -3211,7 +3233,7 @@ a {
 
   .section__contacts {
     max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
-    padding-bottom: 42px;
+    padding-bottom: 44px;
   }
 
   .section__contacts_title {
@@ -3238,6 +3260,10 @@ a {
     max-width: calc(280px + (380 - 280) * ((100vw - 320px) / (420 - 320))); 
   }
 
+  .footer__main_logo {
+    background-size: 29px 16px;
+  }
+
   .footer__logo_text {
     padding-left: 50px;
   }
@@ -3248,6 +3274,10 @@ a {
 
   .footer__nav_link {
     font-size: 16px;
+  }
+
+  .footer__main_social {
+    margin-top: 0;
   }
 
   .social_link {
