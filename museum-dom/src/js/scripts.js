@@ -1,10 +1,17 @@
+// custom video----------------------------------
+
 const play = document.querySelector('.play');
 const pause = document.querySelector('.pause');
+const video = document.querySelectorAll('.video_one')
 
-let video = document.querySelector('.video_one')
+// let currentVideo = 0
+
+function currentVideo() {
+
+}
 
 function playf() {
-  video.play();
+  video[0].play();
 }
 function pausef() {
   video.pause();
@@ -13,13 +20,19 @@ function pausef() {
 play.onclick = playf;
 pause.onclick = pausef;
 
+
+// progress gradient-----------------------------
+
 [...document.querySelectorAll('.progress_style')].forEach(function (item) {
   item.addEventListener('input', function () {
     const value = this.value;
     this.style.background = `linear-gradient(to right, 
-      #710707 0%, #710707 ${value}%, #fff ${value}%, #fff 100%)`
+      #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`
   })
 })
+
+
+// hamb menu------------------------------------
 
 if (document.querySelectorAll(".hamb").length > 0) {
   document.querySelector(".hamb").onclick = toggleMobileMenu;
@@ -46,7 +59,8 @@ const slider = document.querySelector('.section__explore_slider_wrap')
 const before = slider.querySelector('.explore_slider_before')
 const beforeImage = before.querySelector('.explore_slider_before-pic')
 const change = slider.querySelector('.explore_slider_change')
-const body = document.body;
+// const body = document.body;
+const body = document.querySelector('.section__explore_slider_wrap')
 
 let isActive = false
 
@@ -118,6 +132,18 @@ body.addEventListener('touchmove', (e) => {
   beforeAfterSlider(x);
   pauseEvents(e);
 })
+
+
+// slider video section---------------------------
+
+$('.section__video_slider-one').slick({
+  prevArrow: $('.video_arrow_left'),
+  nextArrow: $('.video_arrow_right'),
+  // speed: 1000,
+  // dots: true,
+  // appendDots: $('.welcome__slider_dots'),
+});
+
 
 
 

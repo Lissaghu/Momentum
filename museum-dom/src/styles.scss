@@ -698,7 +698,7 @@ a {
   }
   // grid-template-columns: repeat(3, 452px);
   // grid-template-rows: 678px 254px;
-  grid-column-gap: 42px;
+  grid-column-gap: 40px;
   grid-row-gap: 40px;
 }
 
@@ -706,15 +706,18 @@ a {
   position: relative;
   grid-column-start: 1;
   grid-column-end: 4;
+  max-width: 1440px;
 }
 
-.section__video_one-pic {
-  @media screen and (min-width: 1441px) {
-    max-width: 1440px;
-  }
-  @media screen and (max-width: 1440px) {
-    max-width: calc(984px + (1440 - 984) * ((100vw - 1024px) / (1440 - 1024)));
-  }
+.section__video_slider-one {
+  display: flex;
+  
+}
+
+.video_one_button-play {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .video_one_button {
@@ -735,17 +738,19 @@ a {
 
 .video_one {
   width: 100%;
+  max-height: 735px;
   position: relative;
   z-index: 1;
+  object-fit: cover;
 }
 
 .video_controls {
   @media screen and (min-width: 1441px) {
-    width: 1440px;
+    max-width: 1440px;
     height: 85px;
   }
   @media screen and (max-width: 1440px) {
-    width: calc(984px + (1440 - 984) * ((100vw - 1024px) / (1440 - 1024)));
+    max-width: calc(984px + (1440 - 984) * ((100vw - 1024px) / (1440 - 1024)));
     height: calc(60px + (85 - 60) * ((100vw - 1024px) / (1440 - 1024)));
   }
   display: flex;
@@ -754,7 +759,7 @@ a {
   background-color: $Bg-dark;
   position: relative;
   z-index: 2;
-  margin-top: -5px;
+  margin-top: -85px;
   &:last-child {
     padding-right: 25px;
   }
@@ -790,7 +795,8 @@ a {
     height: calc(5px + (8 - 5) * ((100vw - 1024px) / (1440 - 1024)));
   }
   -webkit-appearance: none;
-  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 53%, #C4C4C4 54%, #C4C4C4 100%);
+  // background: linear-gradient(to right, $Dark-red 0%, $Dark-red 53%, #C4C4C4 54%, #C4C4C4 100%);
+  background: linear-gradient(to right, $Dark-red 0%, $Dark-red 0%, #C4C4C4 0%, #C4C4C4 100%);
   width: 100%;
   cursor: pointer;
   
@@ -820,6 +826,10 @@ a {
     height: calc(5px + (8 - 5) * ((100vw - 1024px) / (1440 - 1024)));
   }
   background: linear-gradient(to right, $Dark-red 0%, $Dark-red 43%, #C4C4C4 44%, #C4C4C4 100%);
+}
+
+.fullscreen {
+  margin-right: 25px;
 }
 
 .section__video_five {
@@ -2374,10 +2384,6 @@ a {
     //   width: 300px;
     //   height: 170px;
     // }
-  }
-
-  .section__video_one-pic {
-    max-width: calc(728px + (984 - 728) * ((100vw - 768px) / (1024 - 768)));
   }
 
   .video_one_button {
