@@ -235,21 +235,25 @@
 
                                     <div class="video_controls_play">
                                         <img class="play play_active" src="./assets/svg/Group.svg" alt="">
-                                        <img class="pause next" src="./assets/svg/pause.svg" alt="">
+                                        <img class="pause pause_active" src="./assets/svg/pause.svg" alt="">
                                     </div>
 
-                                    <input class="progress progress_style" type="range" max="100" min="0" value="0">
+                                    <!-- <input class="progress progress_style" type="range" max="100" min="0" value="0"> -->
+                                    <div class="progress__wrapper">
+                                        <div class="progress__space-line"></div>
+                                        <div class="progress__red-line"></div>
+                                    </div>
 
                                     <div class="video_controls_volume">
                                         <img class="volume_on volume_active" src="./assets/svg/volume.svg" alt="">
-                                        <img class="volume_off volume_next" src="./assets/svg/mute.svg" alt="">
+                                        <img class="volume_off volumeOff_active" src="./assets/svg/mute.svg" alt="">
                                     </div>
 
-                                    <input class="volume progress_style" type="range" max="100" min="0" value="43">
+                                    <input class="volume progress_style j-volume" type="range" max="100" min="0" value="43">
 
                                     <div class="video_controls_screen">
                                         <img class="fullscrin fullscreen_active" src="./assets/svg/fullscreen.svg" alt="">
-                                        <img class="fullscrin_exit fullscreen_next" src="./assets/svg/fullscreen_exit.svg" alt="">
+                                        <img class="fullscrin_exit fullscreenExit_next" src="./assets/svg/fullscreen_exit.svg" alt="">
                                     </div>
 
                                 </div>
@@ -628,7 +632,7 @@
         </div>
     </div>
     
-    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script src="./js/slick.min.js"></script>
     
 </body>
