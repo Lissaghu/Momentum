@@ -59,16 +59,16 @@ function togglePlay() {
 }
 
 function spacePlay(e) {
-  let evt = window.event || e
   if (e.code == 'Space') {
     video[currentVideo].paused ? playf() : pausef()
   } else if (e.code == 'KeyM') {
     video[currentVideo].volume !== 0 ? volumeOnF() : volumeOffF()
   } else if (e.code == 'KeyF') {
     document.fullscreenElement ? fullscreenExitF() : fullscreenF()
-  } else if (evt.code == 'ShiftRight' && evt.code == 'Comma') {
+  } else if (e.shiftKey && e.code == 'Comma') {
     speedUp()
-
+  } else if (e.shiftKey && e.code == 'Period') {
+    speedDown()
   }
 }
 
@@ -206,11 +206,11 @@ function fullscreenExitF() {
 }
 
 function speedUp() {
-  video[currentVideo].playbackRate = 1.5
+  video[currentVideo].playbackRate += 0.1
 }
 
 function speedDown() {
-  video[currentVideo].playbackRate = 0.3
+  video[currentVideo].playbackRate -= 0.1
 }
 
 
@@ -353,13 +353,109 @@ $('.slider_video_two').slick({
 });
 
 
+// mapBox--------------------------------------
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibGlzc2FnaHUiLCJhIjoiY2t1b2g3Z3ltMGVtMDJ3bWR2M2k4M2l2OCJ9.PviHQpficoBcUBvFo5Y9HA';
+
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v10',
+  center: [2.3364, 48.86091],
+  zoom: 15.75,
+});
+
+// code from the next step will go here!
+
+const geojson = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'One',
+      geometry: {
+        type: 'Point',
+        coordinates: [2.3364, 48.86091]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Louvre, France'
+      }
+    },
+    {
+      type: 'Two',
+      geometry: {
+        type: 'Point',
+        coordinates: [2.3333, 48.8602]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Louvre, France'
+      }
+    },
+    {
+      type: 'Three',
+      geometry: {
+        type: 'Point',
+        coordinates: [2.3397, 48.8607]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Louvre, France'
+      }
+    },
+    {
+      type: 'Four',
+      geometry: {
+        type: 'Point',
+        coordinates: [2.3330, 48.8619]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Louvre, France'
+      }
+    },
+    {
+      type: 'Five',
+      geometry: {
+        type: 'Point',
+        coordinates: [2.3365, 48.8625]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Louvre, France'
+      }
+    },
+  ]
+};
+// add markers to map
+for (const { geometry, properties } of geojson.features) {
+  // create a HTML element for each feature
+  const el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+  //new mapboxgl.Marker(el).setLngLat(geometry.coordinates).addTo(map);
+
+  new mapboxgl.Marker({
+    color: "#757575",
+  })
+    .setLngLat(geometry.coordinates)
+    .addTo(map);
+}
+
+new mapboxgl.Marker({
+  color: "#171717",
+})
+  .setLngLat([2.3364, 48.86091])
+  .addTo(map);
+
+map.addControl(new mapboxgl.NavigationControl());
 
 
 
 
-// function alertt() {
-//   alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
-// }
-// alertt()
+function alertt() {
+  alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
+}
+alertt()
 
 
