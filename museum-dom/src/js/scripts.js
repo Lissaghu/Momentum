@@ -59,16 +59,16 @@ function togglePlay() {
 }
 
 function spacePlay(e) {
+  let evt = window.event || e
   if (e.code == 'Space') {
     video[currentVideo].paused ? playf() : pausef()
   } else if (e.code == 'KeyM') {
     video[currentVideo].volume !== 0 ? volumeOnF() : volumeOffF()
   } else if (e.code == 'KeyF') {
     document.fullscreenElement ? fullscreenExitF() : fullscreenF()
-  } else if (e.code == 16) {
-    if (e.code == 188) {
-      speedUp()
-    }
+  } else if (evt.code == 'ShiftRight' && evt.code == 'Comma') {
+    speedUp()
+
   }
 }
 
@@ -93,6 +93,7 @@ function nextVideo() {
   currentVideo++
   playActive.style.display = 'block'
   pauseActive.style.display = 'none'
+  videoButtonPlay.style.display = 'block'
 }
 
 function prevVideo() {
@@ -100,6 +101,7 @@ function prevVideo() {
     currentVideo = 4
   }
   currentVideo--
+  videoButtonPlay.style.display = 'block'
 }
 
 function prevVideoPause() {
@@ -335,16 +337,29 @@ $('.section__video_slider-one').slick({
   prevArrow: $('.video_arrow_left'),
   nextArrow: $('.video_arrow_right'),
   swipe: false,
-  // speed: 1000,
-  // dots: true,
-  // appendDots: $('.welcome__slider_dots'),
+  dots: true,
+  appendDots: $('.slider_dot_item_dot'),
+  asNavFor: '.slider_video_two',
+});
+
+
+$('.slider_video_two').slick({
+  prevArrow: $('.video_arrow_left'),
+  nextArrow: $('.video_arrow_right'),
+  swipe: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.section__video_slider-one',
 });
 
 
 
-function alertt() {
-  alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
-}
-alertt()
+
+
+
+// function alertt() {
+//   alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
+// }
+// alertt()
 
 
