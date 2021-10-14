@@ -319,17 +319,17 @@
                                 <p class="main_type_tickets_title">Ticket Type</p>
                                 <label class="label">
                                     <input class="radio" type="radio" name="ticket-type" value="Permanent exhibition">
-                                    <span class="elem"></span>
+                                    <span class="elem ticket_permanent"></span>
                                     <span class="text">Permanent exhibition</span>  
                                 </label>    
                                 <label class="label">
                                     <input class="radio" type="radio" name="ticket-type" value="Temporary exhibition">
-                                    <span class="elem"></span>
+                                    <span class="elem ticket_exhibition"></span>
                                     <span class="text">Temporary exhibition</span>                                
                                 </label>  
                                 <label class="label">
                                     <input class="radio" type="radio" name="ticket-type" value="Combined Admission">
-                                    <span class="elem"></span>
+                                    <span class="elem ticket_combined"></span>
                                     <span class="text">Combined Admission</span>
                                 </label>  
                             </div>
@@ -338,20 +338,20 @@
                                 <p class="main_type_amount_title">Amount</p>
 
                                 <p class="amount_basic amount_basic_basic">Basic 18+</p>
-                                    <div class="amount__basic_section">
-                                        <button class="prev_basic prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
-                                        <input class="amount_input" type="number" min="0" max="20" value="1">
-                                        <button class="next_basic next" onclick="this.previousElementSibling.stepUp()">+</button> 
-                                    </div>
-                                    
+                                <div class="amount__basic_section">
+                                    <button class="prev_basic prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
+                                    <input class="amount_input input_basic" type="number" min="0" max="20" value="0">
+                                    <button class="next_basic next" onclick="this.previousElementSibling.stepUp()">+</button> 
+                                </div>
+                                
                                 <p class="amount_basic amount_basic_senior">Senior 65+</p>
-                                    <div class="amount__basic_section">
-                                        <button class="prev_senior prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
-                                        <input class="amount_input" type="number" min="0" max="20" value="1" readonly>
-                                        <button class="next_senior next" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-                                        <p class="amount_total">Total €220</p>
-                                        <button class="popup-link"  href="#popup" type="button">Buy Now</button>
-                                    </div>  
+                                <div class="amount__basic_section">
+                                    <button class="prev_senior prev" type="button" onclick="this.nextElementSibling.stepDown()">&minus;</button>
+                                    <input class="amount_input input_senior" type="number" min="0" max="20" value="0" readonly>
+                                    <button class="next_senior next" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                    <p class="amount_total">Total €0</p>
+                                    <button class="popup-link"  href="#popup" type="button">Buy Now</button>
+                                </div>  
                                 
                             </div>
 
