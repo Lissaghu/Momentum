@@ -353,7 +353,80 @@ $('.slider_video_two').slick({
 });
 
 
-// mapBox--------------------------------------
+// ticket section--------------------------------
+
+const permanent = document.querySelector('.ticket_permanent')
+const temporary = document.querySelector('.ticket_exhibition')
+const combined = document.querySelector('.ticket_combined')
+
+const buttonPrevBasic = document.querySelector('.prev_basic')
+const buttonNextBasic = document.querySelector('.next_basic')
+const buttonPrevSenior = document.querySelector('.prev_senior')
+const buttonNextSenior = document.querySelector('.next_senior')
+const inputBasic = document.querySelector('.input_basic')
+const inputSenior = document.querySelector('.input_senior')
+const allPrice = document.querySelector('.amount_total')
+
+const basicPermanent = 20;
+const basicTemporary = 25;
+const basicCombined = 40;
+
+const seniorPermanent = 10;
+const seniorTemporary = 12.5;
+const seniorCombined = 20;
+
+permanent.addEventListener('click', pricePermanent)
+temporary.addEventListener('click', priceTemporary)
+combined.addEventListener('click', priceCombined)
+
+function pricePermanent() {
+  buttonNextBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicPermanent + inputSenior.value * seniorPermanent}`
+  })
+  buttonPrevBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicPermanent + inputSenior.value * seniorPermanent}`
+  })
+  buttonPrevSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorPermanent + inputBasic.value * basicPermanent}`
+  })
+  buttonNextSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorPermanent + inputBasic.value * basicPermanent}`
+  })
+}
+
+function priceTemporary() {
+  buttonNextBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicTemporary + inputSenior.value * seniorTemporary}`
+  })
+  buttonPrevBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicTemporary + inputSenior.value * seniorTemporary}`
+  })
+  buttonPrevSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorTemporary + inputBasic.value * basicTemporary}`
+  })
+  buttonNextSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorTemporary + inputBasic.value * basicTemporary}`
+  })
+}
+
+function priceCombined() {
+  buttonNextBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicCombined + inputSenior.value * seniorCombined}`
+  })
+  buttonPrevBasic.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputBasic.value * basicCombined + inputSenior.value * seniorCombined}`
+  })
+  buttonPrevSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorCombined + inputBasic.value * basicCombined}`
+  })
+  buttonNextSenior.addEventListener('click', () => {
+    allPrice.innerText = `Total €${inputSenior.value * seniorCombined + inputBasic.value * basicCombined}`
+  })
+}
+
+
+
+// mapBox----------------------------------------
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGlzc2FnaHUiLCJhIjoiY2t1b2g3Z3ltMGVtMDJ3bWR2M2k4M2l2OCJ9.PviHQpficoBcUBvFo5Y9HA';
 
@@ -453,9 +526,9 @@ map.addControl(new mapboxgl.NavigationControl());
 
 
 
-function alertt() {
-  alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
-}
-alertt()
+// function alertt() {
+//   alert('Проверь пожалуйста в последний день cross-check, я не успел многое доделать, буду очень признателен)')
+// }
+// alertt()
 
 
