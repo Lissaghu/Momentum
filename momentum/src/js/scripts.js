@@ -5,6 +5,12 @@ const greetingText = document.querySelector('.name')
 const body = document.querySelector('body')
 const slidePrev = document.querySelector('.slide-prev')
 const slideNext = document.querySelector('.slide-next')
+const weatherIcon = document.querySelector('.weather-icon')
+const weatherTemperature = document.querySelector('.temperature')
+const weatherDescription = document.querySelector('.weather-description')
+const inputCity = document.querySelector('.city')
+const wind = document.querySelector('.wind')
+const humidity = document.querySelector('.humidity')
 
 
 function showTime() {
@@ -45,7 +51,7 @@ function getTimeOfDay() {
   } else if (getHours() < 6 && getHours() >= 0) {
     return timeOfDay[3]
   }
-  setTimeout(getTimeOfDay, 10000)
+  setTimeout(getTimeOfDay, 1000)
 }
 
 function showGreeting() {
@@ -56,6 +62,7 @@ function showGreeting() {
 
 function setLocalStorage() {
   localStorage.setItem('name', greetingText.value)
+  localStorage.setItem('city', inputCity.value)
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
@@ -63,6 +70,8 @@ function getLocalStorage() {
   if (localStorage.getItem('name')) {
     greetingText.value = localStorage.getItem('name')
   }
+  inputCity.value = localStorage.getItem('city')
+
 }
 window.addEventListener('load', getLocalStorage)
 
@@ -78,10 +87,11 @@ getRandomNum()
 
 function setBg() {
   let timeOfDay = getTimeOfDay()
-  let bgNum = getRandomNum()
+  let bgNum = randomNum
   let num = bgNum < 10 ? ('0' + bgNum) : bgNum
   const img = new Image();
   img.src = `https://raw.githubusercontent.com/Lissaghu/stage1-tasks/assets/images/${timeOfDay}/${num}.jpg`
+  console.log(img.src)
   img.addEventListener('load', () => {
     body.style.backgroundImage = `url(${img.src})`
   })
@@ -109,3 +119,25 @@ function getSlidePrev() {
 }
 
 slidePrev.addEventListener('click', getSlidePrev)
+
+async function getWeather() {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+  const res = await fetch(url)
+  const data = await res.json()
+
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`)
+  weatherTemperature.textContent = `${Math.round(data.main.temp)}°C`
+  weatherDescription.textContent = data.weather[0].description
+  wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
+  humidity.textContent = `Humidity: ${data.main.humidity}%`
+
+  localStorage.setItem('temp', weatherTemperature.textContent)
+  if (localStorage.getItem('temp')) {
+    weatherTemperature.textContent = localStorage.getItem('temp')
+  }
+
+
+}
+getWeather()
+
+inputCity.addEventListener('change', getWeather)
