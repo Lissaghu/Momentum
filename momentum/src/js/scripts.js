@@ -3,6 +3,8 @@ const dateToday = document.querySelector('.date')
 const greet = document.querySelector('.greeting')
 const greetingText = document.querySelector('.name')
 const body = document.querySelector('body')
+const slidePrev = document.querySelector('.slide-prev')
+const slideNext = document.querySelector('.slide-next')
 
 
 function showTime() {
@@ -64,16 +66,46 @@ function getLocalStorage() {
 }
 window.addEventListener('load', getLocalStorage)
 
+let randomNum;
+
 function getRandomNum() {
   let max = 20
   let min = 1
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  randomNum = Math.floor(Math.random() * (max - min + 1)) + min
+  return randomNum;
 }
+getRandomNum()
 
 function setBg() {
   let timeOfDay = getTimeOfDay()
   let bgNum = getRandomNum()
   let num = bgNum < 10 ? ('0' + bgNum) : bgNum
-  body.style.background = `url('https://raw.githubusercontent.com/Lissaghu/stage1-tasks/assets/images/${timeOfDay}/${num}.jpg')`
+  const img = new Image();
+  img.src = `https://raw.githubusercontent.com/Lissaghu/stage1-tasks/assets/images/${timeOfDay}/${num}.jpg`
+  img.addEventListener('load', () => {
+    body.style.backgroundImage = `url(${img.src})`
+  })
 }
 setBg()
+
+function getSlideNext() {
+  if (randomNum <= 20) {
+    randomNum++
+  } else if (randomNum == 21) {
+    randomNum == 1
+  }
+  setBg()
+}
+
+slideNext.addEventListener('click', getSlideNext)
+
+function getSlidePrev() {
+  if (randomNum > 1) {
+    randomNum--
+  } else if (randomNum == 0) {
+    randomNum == 20
+  }
+  setBg()
+}
+
+slidePrev.addEventListener('click', getSlidePrev)
