@@ -60,7 +60,7 @@ function getTimeOfDay() {
 
 function showGreeting() {
   const timeOfDay = getTimeOfDay()
-  const greetingText = `Good ${timeOfDay}`
+  const greetingText = `Good ${timeOfDay},`
   greet.textContent = greetingText
 }
 
@@ -173,4 +173,5 @@ async function getQuotes() {
 getQuotes()
 
 changeQuote.addEventListener('click', getQuotes)
+
 
