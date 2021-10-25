@@ -158,46 +158,46 @@ function getSlidePrev() {
 
 slidePrev.addEventListener('click', getSlidePrev)
 
-// async function getWeather() {
-//   let url;
-//   if (localStorage.getItem('langValue') == 'Russia') {
-//     url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
-//   } else {
-//     url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
-//   }
+async function getWeather() {
+  let url;
+  if (localStorage.getItem('langValue') == 'Russia') {
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+  } else {
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+  }
 
-//   const res = await fetch(url)
-//   console.log(res.status)
-//   const data = await res.json()
+  const res = await fetch(url)
+  console.log(res.status)
+  const data = await res.json()
 
-//   if (res.status == 200) {
-//     weatherIcon.className = 'weather-icon owf';
-//     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-//     weatherTemperature.textContent = `${Math.round(data.main.temp)}°C`
-//     weatherDescription.textContent = data.weather[0].description
+  if (res.status == 200) {
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    weatherTemperature.textContent = `${Math.round(data.main.temp)}°C`
+    weatherDescription.textContent = data.weather[0].description
 
-//     if (localStorage.getItem('langValue') == 'Russia') {
-//       wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`
-//       humidity.textContent = `Влажность: ${data.main.humidity}%`
-//     } else {
-//       wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
-//       humidity.textContent = `Humidity: ${data.main.humidity}%`
-//     }
+    if (localStorage.getItem('langValue') == 'Russia') {
+      wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`
+      humidity.textContent = `Влажность: ${data.main.humidity}%`
+    } else {
+      wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
+      humidity.textContent = `Humidity: ${data.main.humidity}%`
+    }
 
-//     inputCity.value = data.name
-//     localStorage.setItem('city', inputCity.value)
-//   } else {
-//     weatherError.textContent = `Error! ${data.message} for ${inputCity.value}`
-//     weatherIcon.style.display = 'none'
-//     weatherTemperature.style.display = 'none'
-//     weatherDescription.style.display = 'none'
-//     wind.style.display = 'none'
-//     humidity.style.display = 'none'
-//   }
-// }
+    inputCity.value = data.name
+    localStorage.setItem('city', inputCity.value)
+  } else {
+    weatherError.textContent = `Error! ${data.message} for ${inputCity.value}`
+    weatherIcon.style.display = 'none'
+    weatherTemperature.style.display = 'none'
+    weatherDescription.style.display = 'none'
+    wind.style.display = 'none'
+    humidity.style.display = 'none'
+  }
+}
 
-// document.addEventListener('DOMContentLoaded', getWeather);
-// inputCity.addEventListener('change', getWeather)
+document.addEventListener('DOMContentLoaded', getWeather);
+inputCity.addEventListener('change', getWeather)
 
 async function getQuotes() {
 
@@ -251,20 +251,23 @@ selectLanguage.addEventListener('change', selectLanguageValue)
 // settings-------------------------------------------------------------
 
 function clickSetting(e) {
+
   const settingWrap = document.querySelector('.settings-wrap')
   let target = e.currentTarget
+
   if (!target.classList.contains('open')) {
     settingsButton.classList.add('open')
     settingWrap.style.opacity = '1'
-    console.log(target.classList.contains('open'))
-
   } else {
     settingsButton.classList.remove('open')
     settingWrap.style.opacity = ''
   }
-
-
 }
 
 settingsButton.addEventListener('click', clickSetting)
 
+
+function alertt() {
+  alert('Пожалуйста проверь в последний день кросс чека, многое ещё не доделал, буду очень призателен)')
+}
+alertt()
