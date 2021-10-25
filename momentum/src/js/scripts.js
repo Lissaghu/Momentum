@@ -250,7 +250,19 @@ selectLanguage.addEventListener('change', selectLanguageValue)
 
 // settings-------------------------------------------------------------
 
-function clickSetting() {
+function clickSetting(e) {
+  const settingWrap = document.querySelector('.settings-wrap')
+  let target = e.currentTarget
+  if (!target.classList.contains('open')) {
+    settingsButton.classList.add('open')
+    settingWrap.style.opacity = '1'
+    console.log(target.classList.contains('open'))
+
+  } else {
+    settingsButton.classList.remove('open')
+    settingWrap.style.opacity = ''
+  }
+
 
 }
 
