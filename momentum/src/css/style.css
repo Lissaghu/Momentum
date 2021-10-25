@@ -163,6 +163,7 @@ body {
   transition: .3s;  
 }
 
+.settings:hover,
 .player-icon:hover,
 .slider-icon:hover,
 .change-quote:hover {
@@ -329,6 +330,52 @@ body {
   height: 30vh;
   min-height: 160px;  
   padding: 20px;
+  position: relative;
+}
+
+.settings {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background-image: url('../assets/svg/settings.svg');
+  background-size: 30px 30px;
+  height: 30px;
+  width: 30px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: .3s; 
+}
+
+.settings-wrap {
+  position: absolute;
+  left: 60px;
+  bottom: 100px;
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.language-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.background-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.select-lang:hover,
+.select-bg:hover {
+  cursor: pointer;
 }
 
 .change-quote {

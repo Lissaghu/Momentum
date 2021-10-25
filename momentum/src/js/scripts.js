@@ -1,7 +1,7 @@
 const time = document.querySelector('.time')
 const dateToday = document.querySelector('.date')
 const greet = document.querySelector('.greeting')
-const greetingText = document.querySelector('.name')
+const greetingTextInput = document.querySelector('.name')
 const body = document.querySelector('body')
 const slidePrev = document.querySelector('.slide-prev')
 const slideNext = document.querySelector('.slide-next')
@@ -15,7 +15,8 @@ const weatherError = document.querySelector('.weather-error')
 const quote = document.querySelector('.quote')
 const author = document.querySelector('.author')
 const changeQuote = document.querySelector('.change-quote')
-
+const selectLanguage = document.querySelector('.select-lang')
+const settingsButton = document.querySelector('.settings')
 
 function showTime() {
   const date = new Date();
@@ -34,8 +35,15 @@ function showDate() {
     weekday: 'long',
     day: 'numeric',
   };
-  const currentDate = date.toLocaleDateString('en-US', options)
-  dateToday.textContent = `${currentDate}`
+  if (localStorage.getItem('langValue') == 'Russia') {
+    const currentDate = date.toLocaleDateString('ru-RU', options)
+    dateToday.textContent = `${currentDate}`
+  } else {
+    const currentDate = date.toLocaleDateString('en-US', options)
+    dateToday.textContent = `${currentDate}`
+  }
+
+
 }
 
 function getHours() {
@@ -58,10 +66,32 @@ function getTimeOfDay() {
   setTimeout(getTimeOfDay, 1000)
 }
 
+function getTimeOfDayRu() {
+  const timeOfDay = ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Доброй ночи']
+  if (getHours() < 12 && getHours() >= 6) {
+    return timeOfDay[0]
+  } else if (getHours() < 18 && getHours() >= 12) {
+    return timeOfDay[1]
+  } else if (getHours() <= 23 && getHours() >= 18) {
+    return timeOfDay[2]
+  } else if (getHours() < 6 && getHours() >= 0) {
+    return timeOfDay[3]
+  }
+  setTimeout(getTimeOfDay, 1000)
+}
+
 function showGreeting() {
-  const timeOfDay = getTimeOfDay()
-  const greetingText = `Good ${timeOfDay},`
-  greet.textContent = greetingText
+  if (localStorage.getItem('langValue') == 'Russia') {
+    const timeOfDay = getTimeOfDayRu()
+    const greetingText = `${timeOfDay},`
+    greet.textContent = greetingText
+    greetingTextInput.placeholder = '[Введите имя]'
+  } else {
+    const timeOfDay = getTimeOfDay()
+    const greetingText = `Good ${timeOfDay},`
+    greet.textContent = greetingText
+  }
+
 }
 
 function localStorageCity() {
@@ -73,13 +103,13 @@ function localStorageCity() {
 localStorageCity()
 
 function setLocalStorage() {
-  localStorage.setItem('name', greetingText.value)
+  localStorage.setItem('name', greetingTextInput.value)
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
 function getLocalStorage() {
   if (localStorage.getItem('name')) {
-    greetingText.value = localStorage.getItem('name')
+    greetingTextInput.value = localStorage.getItem('name')
   }
 }
 window.addEventListener('load', getLocalStorage)
@@ -129,7 +159,13 @@ function getSlidePrev() {
 slidePrev.addEventListener('click', getSlidePrev)
 
 // async function getWeather() {
-//   const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+//   let url;
+//   if (localStorage.getItem('langValue') == 'Russia') {
+//     url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+//   } else {
+//     url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=3a8ea49517022bed16bfd3674732aec5&units=metric`
+//   }
+
 //   const res = await fetch(url)
 //   console.log(res.status)
 //   const data = await res.json()
@@ -139,8 +175,16 @@ slidePrev.addEventListener('click', getSlidePrev)
 //     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
 //     weatherTemperature.textContent = `${Math.round(data.main.temp)}°C`
 //     weatherDescription.textContent = data.weather[0].description
-//     wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
-//     humidity.textContent = `Humidity: ${data.main.humidity}%`
+
+//     if (localStorage.getItem('langValue') == 'Russia') {
+//       wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`
+//       humidity.textContent = `Влажность: ${data.main.humidity}%`
+//     } else {
+//       wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
+//       humidity.textContent = `Humidity: ${data.main.humidity}%`
+//     }
+
+//     inputCity.value = data.name
 //     localStorage.setItem('city', inputCity.value)
 //   } else {
 //     weatherError.textContent = `Error! ${data.message} for ${inputCity.value}`
@@ -150,14 +194,21 @@ slidePrev.addEventListener('click', getSlidePrev)
 //     wind.style.display = 'none'
 //     humidity.style.display = 'none'
 //   }
-
 // }
 
 // document.addEventListener('DOMContentLoaded', getWeather);
 // inputCity.addEventListener('change', getWeather)
 
 async function getQuotes() {
-  const quotes = 'data.json'
+
+  let quotes;
+
+  if (localStorage.getItem('langValue') == 'Russia') {
+    quotes = 'data.json'
+  } else {
+    quotes = 'dataEng.json'
+  }
+
   const res = await fetch(quotes)
   const data = await res.json()
 
@@ -174,4 +225,34 @@ getQuotes()
 
 changeQuote.addEventListener('click', getQuotes)
 
+// select Languages--------------------------------------------------
+
+function selectLanguageValue() {
+  if (localStorage.getItem('langValue') === null) {
+    localStorage.setItem('langValue', selectLanguage.value)
+    location.reload()
+  } else if (localStorage.getItem('langValue') != selectLanguage.value) {
+    localStorage.setItem('langValue', selectLanguage.value)
+    location.reload()
+  }
+
+}
+
+function changeLanguage() {
+  if (localStorage.getItem('langValue') == 'Russia') {
+    document.querySelector('.language').textContent = 'Выбор языка'
+    document.querySelector('.background-sourse').textContent = 'Выбор фона'
+  }
+}
+changeLanguage()
+
+selectLanguage.addEventListener('change', selectLanguageValue)
+
+// settings-------------------------------------------------------------
+
+function clickSetting() {
+
+}
+
+settingsButton.addEventListener('click', clickSetting)
 
