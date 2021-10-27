@@ -114,6 +114,10 @@ function localStorageCity() {
     localStorage.setItem('city', 'Minsk')
   }
   inputCity.value = localStorage.getItem('city')
+
+  if (localStorage.getItem('backValue') === null) {
+    localStorage.setItem('backValue', 'Github')
+  }
 }
 localStorageCity()
 
@@ -351,14 +355,12 @@ async function getLinkToImageFlickr() {
   }
 
   const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=0f15ff623f1198a1f7f52550f8c36057&gallery_id=${galleryTimeOfDay}&extras=url_h&format=json&nojsoncallback=1`
-  console.log(url)
   const res = await fetch(url)
   const data = await res.json()
 
   const img = new Image();
   img.src = data.photos.photo[Math.floor(Math.random() * 16)].url_h
 
-  console.log(data.photos.photo)
 
   if (localStorage.getItem('backValue') == 'Flickr') {
     img.addEventListener('load', () => {
