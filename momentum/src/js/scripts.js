@@ -17,6 +17,9 @@ const author = document.querySelector('.author')
 const changeQuote = document.querySelector('.change-quote')
 const selectLanguage = document.querySelector('.select-lang')
 const settingsButton = document.querySelector('.settings')
+const selectBackground = document.querySelector('.select-bg')
+
+// time---------------------------------------------------------------
 
 function showTime() {
   const date = new Date();
@@ -27,6 +30,8 @@ function showTime() {
   setTimeout(showTime, 1000)
 }
 showTime()
+
+// date----------------------------------------------------------------
 
 function showDate() {
   const date = new Date();
@@ -46,11 +51,15 @@ function showDate() {
 
 }
 
+// getHours---------------------------------------------------------
+
 function getHours() {
   const date = new Date()
   const hours = date.getHours()
   return hours
 }
+
+// TimeOfDayEn-------------------------------------------------------
 
 function getTimeOfDay() {
   const timeOfDay = ['morning', 'afternoon', 'evening', 'night']
@@ -66,6 +75,8 @@ function getTimeOfDay() {
   setTimeout(getTimeOfDay, 1000)
 }
 
+// TimeOfDayRU-------------------------------------------------------
+
 function getTimeOfDayRu() {
   const timeOfDay = ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Доброй ночи']
   if (getHours() < 12 && getHours() >= 6) {
@@ -80,6 +91,8 @@ function getTimeOfDayRu() {
   setTimeout(getTimeOfDay, 1000)
 }
 
+// greeting --------------------------------------------------------
+
 function showGreeting() {
   if (localStorage.getItem('langValue') == 'Russia') {
     const timeOfDay = getTimeOfDayRu()
@@ -93,6 +106,8 @@ function showGreeting() {
   }
 
 }
+
+// localStorage-------------------------------------------------------
 
 function localStorageCity() {
   if (localStorage.getItem('city') === null) {
@@ -114,6 +129,8 @@ function getLocalStorage() {
 }
 window.addEventListener('load', getLocalStorage)
 
+// randomNum---------------------------------------------------------
+
 let randomNum;
 
 function getRandomNum() {
@@ -124,17 +141,26 @@ function getRandomNum() {
 }
 getRandomNum()
 
+// gitHub background----------------------------------------------------
+
 function setBg() {
   let timeOfDay = getTimeOfDay()
   let bgNum = randomNum
   let num = bgNum < 10 ? ('0' + bgNum) : bgNum
   const img = new Image();
   img.src = `https://raw.githubusercontent.com/Lissaghu/stage1-tasks/assets/images/${timeOfDay}/${num}.jpg`
-  img.addEventListener('load', () => {
-    body.style.backgroundImage = `url(${img.src})`
-  })
+
+  if (localStorage.getItem('backValue') == 'Github') {
+    img.addEventListener('load', () => {
+      body.style.backgroundImage = `url(${img.src})`
+    })
+  }
+
+
 }
 setBg()
+
+// slide Next-----------------------------------------------------------
 
 function getSlideNext() {
   if (randomNum < 20) {
@@ -143,9 +169,13 @@ function getSlideNext() {
     randomNum = 1
   }
   setBg()
+  getLinkToImageUnsplash()
+  getLinkToImageFlickr()
 }
 
 slideNext.addEventListener('click', getSlideNext)
+
+// slide Prev-----------------------------------------------------------
 
 function getSlidePrev() {
   if (randomNum > 1) {
@@ -154,9 +184,13 @@ function getSlidePrev() {
     randomNum = 20
   }
   setBg()
+  getLinkToImageUnsplash()
+  getLinkToImageFlickr()
 }
 
 slidePrev.addEventListener('click', getSlidePrev)
+
+// weather API----------------------------------------------------------
 
 async function getWeather() {
   let url;
@@ -167,7 +201,6 @@ async function getWeather() {
   }
 
   const res = await fetch(url)
-  console.log(res.status)
   const data = await res.json()
 
   if (res.status == 200) {
@@ -198,6 +231,8 @@ async function getWeather() {
 
 document.addEventListener('DOMContentLoaded', getWeather);
 inputCity.addEventListener('change', getWeather)
+
+// quotes---------------------------------------------------------
 
 async function getQuotes() {
 
@@ -235,7 +270,6 @@ function selectLanguageValue() {
     localStorage.setItem('langValue', selectLanguage.value)
     location.reload()
   }
-
 }
 
 function changeLanguage() {
@@ -266,8 +300,72 @@ function clickSetting(e) {
 
 settingsButton.addEventListener('click', clickSetting)
 
+// select background----------------------------------------------------
 
-function alertt() {
-  alert('Пожалуйста проверь в последний день кросс чека, многое ещё не доделал, буду очень призателен)')
+function selectBackgroundValue() {
+  if (localStorage.getItem('backValue') === null) {
+    localStorage.setItem('backValue', selectBackground.value)
+    location.reload()
+  } else if (localStorage.getItem('backValue') != selectBackground.value) {
+    localStorage.setItem('backValue', selectBackground.value)
+    location.reload()
+  }
 }
-alertt()
+
+selectBackground.addEventListener('change', selectBackgroundValue)
+
+// select Unsplash-------------------------------------------------------
+
+async function getLinkToImageUnsplash() {
+  let timeOfDay = getTimeOfDay()
+  let natureDay = `nature-${timeOfDay}`
+
+  const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${natureDay}&client_id=WwAot07b1Ke5fLmaHfzKAVjNaeBSpMfr17CQvts1hwg`
+  const res = await fetch(url)
+  const data = await res.json()
+  const img = new Image();
+  img.src = data.urls.regular
+
+  if (localStorage.getItem('backValue') == 'Unsplash') {
+    img.addEventListener('load', () => {
+      body.style.backgroundImage = `url(${img.src})`
+    })
+  }
+}
+getLinkToImageUnsplash()
+
+// select Flickr-------------------------------------------------------
+
+async function getLinkToImageFlickr() {
+  const timeOfDay = getTimeOfDay()
+  let galleryTimeOfDay;
+
+  if (timeOfDay == 'night') {
+    galleryTimeOfDay = '72157720062587146'
+  } else if (timeOfDay == 'morning') {
+    galleryTimeOfDay = '72157720069530982'
+  } else if (timeOfDay == 'afternoon') {
+    galleryTimeOfDay = '72157720111881805'
+  } else if (timeOfDay == 'evening') {
+    galleryTimeOfDay = '72157720111880160'
+  }
+
+  const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=0f15ff623f1198a1f7f52550f8c36057&gallery_id=${galleryTimeOfDay}&extras=url_h&format=json&nojsoncallback=1`
+  console.log(url)
+  const res = await fetch(url)
+  const data = await res.json()
+
+  const img = new Image();
+  img.src = data.photos.photo[Math.floor(Math.random() * 16)].url_h
+
+  console.log(data.photos.photo)
+
+  if (localStorage.getItem('backValue') == 'Flickr') {
+    img.addEventListener('load', () => {
+      body.style.backgroundImage = `url(${img.src})`
+    })
+  }
+}
+getLinkToImageFlickr()
+
+
