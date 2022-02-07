@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/owfont-regular.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>momentum</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="player">
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+          <div class="progress-main-line">
+            <div class="progress-title"></div>
+            <div class="progress-line"></div>
+          </div>
+          <div class="duration-timer">
+            <div class="current-duration">0:00</div>
+            <div class="duration">0:00</div>
+          </div>
+          <button class="volume-icon" type="button"></button>
+          <input class="volume" type="range" value="20" min="0" max="100">
+        </div>
+        <ul class="play-list"></ul>
+      </div>
+      <div class="weather">
+        <input type="text" class="city" />
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="slider-icons">
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
+      </div>
+      <time class="time"></time>
+      <date class="date"></date>
+      <div class="greeting-container">
+        <span class="greeting"></span>
+        <input type="text" class="name" placeholder="[Enter name]"/>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="settings"></div>
+      <div class="settings-wrap">
+
+        <div class="language-wrap">
+          <div class="language">Language selection</div>
+          <form action="">
+            <select class="select-lang" name="language" id="" size="1">
+              <option value="">Language</option>
+              <option class="option-lang" value="English">English</option>
+              <option class="option-lang" value="Russia">Русский</option>
+            </select>
+          </form>  
+        </div>
+
+        <div class="background-wrap">
+          <div class="background-sourse">Background selection</div>
+          <select class="select-bg" name="background" id="" >
+            <option value="">Background</option>
+            <option class="option-bg" value="Github">Github</option>
+            <option class="option-bg"  value="Unsplash">Unsplash</option>
+            <option class="option-bg"  value="Flickr">Flickr</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="courses">
+        <a class="link-git" href="https://github.com/Lissaghu" target="blanc">Lissaghu</a>
+        <div class="make-year">2021</div>
+        <a class="link-rsschool" href="https://rs.school/js/" target="blanc"></a>
+      </div>
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </footer>
+</body>
+</html>
