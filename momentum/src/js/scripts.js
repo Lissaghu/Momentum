@@ -47,8 +47,6 @@ function showDate() {
     const currentDate = date.toLocaleDateString('en-US', options)
     dateToday.textContent = `${currentDate}`
   }
-
-
 }
 
 // getHours---------------------------------------------------------
@@ -104,14 +102,13 @@ function showGreeting() {
     const greetingText = `Good ${timeOfDay},`
     greet.textContent = greetingText
   }
-
 }
 
 // localStorage-------------------------------------------------------
 
 function localStorageCity() {
   if (localStorage.getItem('city') === null) {
-    localStorage.setItem('city', 'Minsk')
+    localStorage.setItem('city', 'Saint Petersburg')
   }
   inputCity.value = localStorage.getItem('city')
 
@@ -159,8 +156,6 @@ function setBg() {
       body.style.backgroundImage = `url(${img.src})`
     })
   }
-
-
 }
 setBg()
 
@@ -289,7 +284,6 @@ selectLanguage.addEventListener('change', selectLanguageValue)
 // settings-------------------------------------------------------------
 
 function clickSetting(e) {
-
   const settingWrap = document.querySelector('.settings-wrap')
   let target = e.currentTarget
 
@@ -360,7 +354,6 @@ async function getLinkToImageFlickr() {
 
   const img = new Image();
   img.src = data.photos.photo[Math.floor(Math.random() * 16)].url_h
-
 
   if (localStorage.getItem('backValue') == 'Flickr') {
     img.addEventListener('load', () => {
